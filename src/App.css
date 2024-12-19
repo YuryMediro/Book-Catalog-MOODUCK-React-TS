@@ -1,12 +1,7 @@
 .app-wrapper {
-	display: grid;
-	background-color: #ffffff;
-	max-width: 1400px;
-	margin: 0 auto;
-	grid-template-columns: 1400px;
-	grid-template-rows: minmax(130px, auto) minmax(1500px, auto) minmax(
-			164px,
-			auto
-		);
-	row-gap: 30px;
+	background-color: white;
+	display: flex;
+	min-height: 100vh;
+	width: 100%;
+	justify-content: center;
 }
