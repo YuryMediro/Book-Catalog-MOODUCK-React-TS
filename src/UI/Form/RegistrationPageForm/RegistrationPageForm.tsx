@@ -6,9 +6,9 @@ import { email, lock, eye, user } from '../../../assets/img'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../../../Redux/Reducers/redux-store'
 import { usePasswordVisible } from '../../../hooks/usePasswordVisible'
-import { validateSchema } from '../../../utils/validadeScema'
+import { validateRegSchema } from '../../../utils/validadeRegScema'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { formValues } from '../../../app/types/formValues'
+import { formRegValues } from '../../../app/types/formRegValues'
 import { useConfirmPasswordVisible } from '../../../hooks/useConfirmPasswordVisible'
 
 export const RegistrationPageForm = () => {
@@ -17,9 +17,9 @@ export const RegistrationPageForm = () => {
 		handleSubmit,
 		reset,
 		formState: { errors, isValid },
-	} = useForm<formValues>({
+	} = useForm<formRegValues>({
 		mode: 'onBlur',
-		resolver: yupResolver(validateSchema),
+		resolver: yupResolver(validateRegSchema),
 	})
 
 	const useAppDispatch: () => AppDispatch = useDispatch
@@ -28,7 +28,7 @@ export const RegistrationPageForm = () => {
 	const passwordVisible = usePasswordVisible(false)
 	const confirmPasswordVisible = useConfirmPasswordVisible(false)
 
-	const onSubmit: SubmitHandler<formValues> = data => {
+	const onSubmit: SubmitHandler<formRegValues> = data => {
 		console.log({ data })
 		reset()
 		// Здесь можно добавить логику для отправки данных на сервер

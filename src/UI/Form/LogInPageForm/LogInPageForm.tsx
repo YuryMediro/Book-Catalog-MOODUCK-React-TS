@@ -1,24 +1,24 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Button } from '../../Button/Button'
-import s from './LogInPageForm.module.css'
+import s from './LoginPageForm.module.css'
 import { ReactSVG } from 'react-svg'
 import { email, lock, eye } from '../../../assets/img'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../../../Redux/Reducers/redux-store'
 import { usePasswordVisible } from '../../../hooks/usePasswordVisible'
-import { validateSchema } from '../../../utils/validadeScema'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { formValues } from '../../../app/types/formValues'
+import { formLoginValues } from '../../../app/types/formLoginValues'
+import { validateLoginSchema } from '../../../utils/validateLoginSchema'
 
-export const LogInPageForm = () => {
+export const LoginPageForm = () => {
 	const {
 		register,
 		handleSubmit,
 		reset,
 		formState: { errors, isValid },
-	} = useForm<formValues>({
+	} = useForm<formLoginValues>({
 		mode: 'onBlur',
-		resolver: yupResolver(validateSchema),
+		resolver: yupResolver(validateLoginSchema),
 	})
 
 	const useAppDispatch: () => AppDispatch = useDispatch
@@ -26,7 +26,7 @@ export const LogInPageForm = () => {
 
 	const passwordVisible = usePasswordVisible(false)
 
-	const onSubmit: SubmitHandler<formValues> = data => {
+	const onSubmit: SubmitHandler<formLoginValues> = data => {
 		console.log({ data })
 		reset()
 		// Здесь можно добавить логику для отправки данных на сервер

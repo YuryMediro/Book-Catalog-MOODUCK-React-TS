@@ -1,4 +1,4 @@
-export interface formValues {
+export interface formRegValues {
 	email: string
 	password: string
 	username: string

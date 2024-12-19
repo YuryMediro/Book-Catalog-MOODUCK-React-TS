@@ -10,13 +10,13 @@ export const RegistrationPage = () => {
 			<main className={s.wrapper}>
 				<aside className={s.left_side}>
 					<LogoAndName className={s.logo} />
-					<div className={s.register_container}>
-						<p className={s.register_text}>УЖЕ ЕСТЬ АККАУНТ?</p>
+					<div className={s.login_container}>
+						<p className={s.login_text}>УЖЕ ЕСТЬ АККАУНТ?</p>
 						<Link to={'/'}>
-							<Button className={s.register_button}>войти</Button>
+							<Button className={s.login_button}>войти</Button>
 						</Link>
 					</div>
-					<div className={s.divider} />
+					<div className={s.line} />
 				</aside>
 				<RegistrationPageForm />
 			</main>

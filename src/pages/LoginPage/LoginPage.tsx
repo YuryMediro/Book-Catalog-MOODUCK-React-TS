@@ -1,8 +1,8 @@
 import { Link } from 'react-router'
 import { LogoAndName } from '../../components/Layout/LogoAndName/LogoAndName'
 import s from './LoginPage.module.css'
-import { LogInPageForm } from '../../UI/Form/LogInPageForm/LogInPageForm'
 import { Button } from '../../UI/Button/Button'
+import { LoginPageForm } from '../../UI/Form/LoginPageForm/LogInPageForm'
 
 export const LoginPage = () => {
 	return (
@@ -16,9 +16,9 @@ export const LoginPage = () => {
 							<Button className={s.register_button}>зарегистрироваться</Button>
 						</Link>
 					</div>
-					<div className={s.divider} />
+					<div className={s.line} />
 				</aside>
-				<LogInPageForm />
+				<LoginPageForm />
 			</main>
 		</>
 	)
