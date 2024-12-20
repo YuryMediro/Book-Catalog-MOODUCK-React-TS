@@ -25,12 +25,12 @@
 	display: flex;
 	align-items: center;
 	gap: 15px;
-	max-width: 29rem;
-	width: 100%;
+	width: 29rem;
 	padding: 12px;
 	border: 1px solid #160f2980;
 	border-radius: 5px;
 }
+
 .input_field {
 	width: 100%;
 	border: none;
@@ -41,6 +41,8 @@
 
 .error_message {
 	color: #b65c34;
+	font-size: 15px;
+	margin-top: 0;
 }
 .eye_icon {
 	cursor: pointer;

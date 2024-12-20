@@ -3,13 +3,15 @@ import { Button } from '../../Button/Button'
 import s from './RegistrationPageForm.module.css'
 import { ReactSVG } from 'react-svg'
 import { email, lock, eye, user } from '../../../assets/img'
-import { useDispatch } from 'react-redux'
-import { AppDispatch } from '../../../Redux/Reducers/redux-store'
+// import { useDispatch } from 'react-redux'
+// import { AppDispatch } from '../../../Redux/Reducers/redux-store'
 import { usePasswordVisible } from '../../../hooks/usePasswordVisible'
 import { validateRegSchema } from '../../../utils/validadeRegScema'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { formRegValues } from '../../../app/types/formRegValues'
 import { useConfirmPasswordVisible } from '../../../hooks/useConfirmPasswordVisible'
+import { ModalCompleteReg } from '../../modal/ModalCompleteReg'
+import { useFormModal } from '../../../hooks/useFormModal'
 
 export const RegistrationPageForm = () => {
 	const {
@@ -22,11 +24,12 @@ export const RegistrationPageForm = () => {
 		resolver: yupResolver(validateRegSchema),
 	})
 
-	const useAppDispatch: () => AppDispatch = useDispatch
-	const dispatch = useAppDispatch()
+	// const useAppDispatch: () => AppDispatch = useDispatch
+	// const dispatch = useAppDispatch()
 
 	const passwordVisible = usePasswordVisible(false)
 	const confirmPasswordVisible = useConfirmPasswordVisible(false)
+	const completeReg = useFormModal(false)
 
 	const onSubmit: SubmitHandler<formRegValues> = data => {
 		console.log({ data })
@@ -101,10 +104,19 @@ export const RegistrationPageForm = () => {
 				)}
 
 				<div className={s.button_container}>
-					<Button className={s.submit_button} type='submit' disabled={!isValid}>
+					<Button
+						className={s.submit_button}
+						type='submit'
+						disabled={!isValid}
+						onClick={completeReg.handleOnClick}
+					>
 						Зарегистрироваться
 					</Button>
 				</div>
+				<ModalCompleteReg
+					visible={completeReg.visible}
+					setVisible={completeReg.handleOnClick}
+				/>
 			</form>
 		</section>
 	)

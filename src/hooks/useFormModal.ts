@@ -1,11 +1,10 @@
 import { useState } from 'react'
 
-export const usePasswordVisible = (initial: boolean) => {
+export const useFormModal = (initial: boolean) => {
 	const [visible, setVisible] = useState<boolean>(initial)
 
 	const handleOnClick = () => {
-		setVisible(prev => !prev)
+		setVisible(!visible)
 	}
 	return { visible, handleOnClick }
 }
- 

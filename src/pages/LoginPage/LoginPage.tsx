@@ -2,7 +2,7 @@ import { Link } from 'react-router'
 import { LogoAndName } from '../../components/Layout/LogoAndName/LogoAndName'
 import s from './LoginPage.module.css'
 import { Button } from '../../UI/Button/Button'
-import { LoginPageForm } from '../../UI/Form/LoginPageForm/LogInPageForm'
+import { LoginPageForm } from '../../UI/Form/LoginPageForm/LoginPageForm'
 
 export const LoginPage = () => {
 	return (
@@ -18,7 +18,7 @@ export const LoginPage = () => {
 					</div>
 					<div className={s.line} />
 				</aside>
-				<LoginPageForm />
+				<LoginPageForm/>
 			</main>
 		</>
 	)
