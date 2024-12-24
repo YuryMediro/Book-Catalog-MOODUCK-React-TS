@@ -1,35 +1,34 @@
-import logo from '../../../public/assets/img/duck.svg'
-import iconSearch from '../../../public/assets/img/iconsearch.svg'
-import userLogo from '../../../public/assets/img/userlogo.svg'
 import s from './Header.module.css'
+import { LogoAndName } from '../LogoAndName/LogoAndName'
+import { NavLink } from 'react-router'
+import { ReactSVG } from 'react-svg'
+import { search, unknownAvatar } from '../../../assets/img'
+import { Line } from '../../../UI/Line/Line'
 
 export const Header = () => {
 	return (
-		<div className={s.header}>
-			<div className={s.header_logo}>
-				<div className={s.logo}>
-					<img src={logo} alt='' />
-				</div>
-				<div className={s.header_title}>MOODUCK</div>
-			</div>
-			<div></div>
-			<div className={s.header_search}>
-				<form className={s.search_book}>
-					<input
-						className={s.inputBook}
-						type='text'
-						placeholder='Название книги'
-					/>
-					<button type={'submit'} className={s.iconSearch}>
-						<img src={iconSearch} alt='' />
-					</button>
-				</form>
-
-				<div className={s.userLogo}>
-					<img className={s.user_logo} src={userLogo} alt='' />
+		<header className={s.wrapper}>
+			<div className={s.header_top}>
+				<NavLink to={'/booksPage'}>
+					<LogoAndName className={s.LogoAndName} />
+				</NavLink>
+				<div className={s.header_right}>
+					<form className={s.search_bar_form}>
+						<div className={s.input_container}>
+							<input
+								className={s.input_field}
+								type='text'
+								placeholder='Название книги'
+							/>
+							<ReactSVG src={search} className={s.search_icon} />
+						</div>
+					</form>
+					<NavLink to={'/'}>
+						<ReactSVG src={unknownAvatar} />
+					</NavLink>
 				</div>
 			</div>
-			<hr className={s.line} />
-		</div>
+			<Line />
+		</header>
 	)
 }

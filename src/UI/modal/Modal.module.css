@@ -26,6 +26,7 @@
 	justify-content: space-between;
 	width: 100%;
 }
+
 .modal_title {
 	font-size: 1.563rem;
 	font-weight: 600;
@@ -34,7 +35,7 @@
 	width: 100%;
 }
 .center_title {
-  text-align:  center;
+	text-align: center;
 }
 .modal_close {
 	cursor: pointer;

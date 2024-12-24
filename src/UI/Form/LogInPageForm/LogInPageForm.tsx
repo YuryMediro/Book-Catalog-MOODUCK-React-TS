@@ -11,6 +11,9 @@ import { formLoginValues } from '../../../app/types/formLoginValues'
 import { validateLoginSchema } from '../../../utils/validateLoginSchema'
 import { useFormModal } from '../../../hooks/useFormModal'
 import { ModalForgetPassword } from '../../modal/ModalForgetPassword'
+import { ModalResetPassword } from '../../modal/ModalResetPassword'
+import { createPortal } from 'react-dom'
+import { NavLink } from 'react-router'
 export const LoginPageForm = () => {
 	const {
 		register,
@@ -27,12 +30,15 @@ export const LoginPageForm = () => {
 
 	const passwordVisible = usePasswordVisible(false)
 	const modalForgetPassword = useFormModal(false)
+	const modalResetPassword = useFormModal(false)
 
-	const onSubmit: SubmitHandler<formLoginValues> = data => {
+	const onSubmit: SubmitHandler<formLoginValues> = (data, event) => {
 		console.log({ data })
+		event?.preventDefault()
 		reset()
 		// Здесь можно добавить логику для отправки данных на сервер
 	}
+
 	return (
 		<section className={s.logIn_form_container}>
 			<h1 className={s.logIn_title}>ВХОД</h1>
@@ -68,23 +74,39 @@ export const LoginPageForm = () => {
 				{errors.password && (
 					<p className={s.error_message}>{errors.password.message}</p>
 				)}
-
 				<p
 					className={s.forgot_password}
 					onClick={modalForgetPassword.handleOnClick}
 				>
-					Забыли пароли?
+					Забыли пароль?
 				</p>
-
-				<ModalForgetPassword
-					visible={modalForgetPassword.visible}
-					setVisible={modalForgetPassword.handleOnClick}
-				/>
-
+				{createPortal(
+					<ModalForgetPassword
+						visible={modalForgetPassword.visible}
+						setVisible={modalForgetPassword.handleOnClick}
+						setResetPasswordVisible={modalResetPassword.handleOnClick} //чтобы открыть modalResetPass
+					/>,
+					document.body
+				)}
+				{/* для формы в форме createPortal */}
+				{createPortal(
+					<ModalResetPassword
+						visible={modalResetPassword.visible}
+						setVisible={modalResetPassword.handleOnClick}
+					/>,
+					document.body
+				)}
+				{/* для формы в форме createPortal */}
 				<div className={s.button_container}>
-					<Button className={s.submit_button} type='submit' disabled={!isValid}>
-						Войти
-					</Button>
+					<NavLink to={'/booksPage'} >
+						<Button
+							className={s.submit_button}
+							type='submit'
+							disabled={!isValid}
+						>
+							Войти
+						</Button>
+					</NavLink>
 				</div>
 			</form>
 		</section>

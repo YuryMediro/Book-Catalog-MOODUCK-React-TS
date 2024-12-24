@@ -1,66 +1,55 @@
-.header {
-	display: grid;
-	grid-template-columns: 325px 357px 624px;
-	grid-template-rows: 74px;
-	padding: 20px 42px 0 42px;
-	/* background-color: red; */
-}
-.header_logo {
+.wrapper {
 	display: flex;
-	align-items: center;
-}
-.header_title {
-	font-size: 40px;
-	font-weight: 700;
-	line-height: 54.47px;
-	padding-left: 20px;
-	color: black;
-}
-
-.header_search {
-	display: flex;
-	align-items: center;
-}
-
-* {
-	box-sizing: border-box;
-}
-form {
+	flex-direction: column;
+	gap: 30px;
+	padding: 21px 42px;
+	width: 100%;
 	position: relative;
-	margin: 0 auto;
+	width: 87.5rem;
+	height: 100%;
 }
 
-.iconSearch {
-	height: 26px;
-	width: 26px;
-	position: absolute;
-	padding-top: 14.67px;
-	right: 16.78px;
+.header_top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 30px;
+}
+
+.header_right {
+	display: flex;
+	align-items: center;
+	gap: 23px;
+}
+
+.search_bar_form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 30px;
+	font-size: 1.125rem;
+}
+.input_container {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	width: 35.063rem;
+	padding: 12px;
+	border: 2px solid #160f2980;
+	border-radius: 5px;
+}
+.input_field {
+	width: 100%;
+	border: none;
+	outline: none;
+	font-size: 1.125rem;
+	font-weight: 400;
+}
+.search_icon {
 	cursor: pointer;
 }
-.inputBook {
-	border: 1px solid #160f29;
-	border-radius: 2px;
-	opacity: 0.5;
-	width: 561px;
-	height: 46px;
-	padding-left: 12px;
-}
 
-input[placeholder='Название книги'] {
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 21.79px;
-}
-input::placeholder {
+.LogoAndName {
 	color: #160f29;
-}
-
-.user_logo {
-	padding-left: 23px;
-}
-.line {
-	border: none;
-	border-bottom: 1px solid black;
-	width: 1308px;
+	cursor: pointer;
 }

@@ -17,11 +17,16 @@ export const Modal = ({
 	children,
 	centerTitle = false,
 }: ModalProps) => {
+
+	const handleOnClick = () => {
+		setVisible(false)
+	}
+
 	return (
 		<>
 			{visible && (
 				<div className={s.modal_wrapper}>
-					<main className={s.modal_content}>
+					<div className={s.modal_content}>
 						<div className={s.modal_header}>
 							<p
 								className={`${s.modal_title} ${
@@ -33,13 +38,11 @@ export const Modal = ({
 							<ReactSVG
 								src={cross}
 								className={s.modal_close}
-								onClick={() => {
-									setVisible(false)
-								}}
+								onClick={handleOnClick}
 							/>
 						</div>
 						{children}
-					</main>
+					</div>
 				</div>
 			)}
 		</>

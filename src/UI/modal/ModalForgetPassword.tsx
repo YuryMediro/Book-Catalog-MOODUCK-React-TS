@@ -5,15 +5,18 @@ import s from './ModalForgetPassword.module.css'
 import { formForgetPasswordValues } from '../../app/types/formForgetPasswordValues'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { validateForgetPasswordSchema } from '../../utils/validateForgetPasswordSchema'
+import clsx from 'clsx'
 
 interface ModalForgetPasswordProps {
 	visible: boolean
 	setVisible: (visible: boolean) => void
+	setResetPasswordVisible: (visible: boolean) => void //чтобы открыть modalResetPass
 }
 
 export const ModalForgetPassword = ({
 	visible,
 	setVisible,
+	setResetPasswordVisible,
 }: ModalForgetPasswordProps) => {
 	const {
 		register,
@@ -24,10 +27,12 @@ export const ModalForgetPassword = ({
 		mode: 'onBlur',
 		resolver: yupResolver(validateForgetPasswordSchema),
 	})
-
-	const onSubmit: SubmitHandler<formForgetPasswordValues> = data => {
+	const onSubmit: SubmitHandler<formForgetPasswordValues> = (data, event) => {
 		console.log({ data })
+		event?.preventDefault()
 		reset()
+		setVisible(false) //чтобы открыть modalResetPass
+		setResetPasswordVisible(true) //чтобы открыть modalResetPass
 		// Здесь можно добавить логику для отправки данных на сервер
 	}
 
@@ -39,7 +44,9 @@ export const ModalForgetPassword = ({
 				</p>
 				<div className={s.input_container}>
 					<input
-						className={`${s.input} ${errors.email ? s.error : ''}`}
+						className={clsx(s.input, {
+							[s.error]: errors.email,
+						})}
 						type='email'
 						placeholder='Введите ваш E-mail'
 						{...register('email')}
@@ -48,7 +55,7 @@ export const ModalForgetPassword = ({
 						<p className={s.error_message}>{errors.email.message}</p>
 					)}
 				</div>
-				<Button className={s.button} disabled={!isValid}>
+				<Button type='submit' className={s.button} disabled={!isValid}>
 					отправить
 				</Button>
 			</form>
