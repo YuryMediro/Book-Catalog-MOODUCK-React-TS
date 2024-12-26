@@ -1,9 +1,9 @@
 import { ReactSVG } from 'react-svg'
-import { Button } from '../Button/Button'
-import { Modal } from './Modal'
+import { Button } from '../../Button/Button'
+import { Modal } from '../Modal'
 import s from './ModalCompleteReg.module.css'
-import { message } from '../../assets/img'
 import { useNavigate } from 'react-router'
+import { message } from '../../../../assets/img'
 
 interface ModalCompleteRegProps {
 	visible: boolean
@@ -34,7 +34,7 @@ export const ModalCompleteReg = ({
 				</p>
 				<ReactSVG src={message} />
 			</div>
-			<Button className={s.button} onClick={handleOnClick}>
+			<Button className={s.button} onClick={handleOnClick} type='button'>
 				продолжить
 			</Button>
 		</Modal>

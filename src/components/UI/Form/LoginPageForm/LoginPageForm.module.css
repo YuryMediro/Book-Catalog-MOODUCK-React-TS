@@ -23,6 +23,10 @@
 }
 .input_container {
 	display: flex;
+	flex-direction: column;
+}
+.input {
+	display: flex;
 	align-items: center;
 	gap: 15px;
 	width: 29rem;
@@ -30,22 +34,24 @@
 	border: 2px solid #160f2980;
 	border-radius: 5px;
 }
-
-.input_field {
+.inputFields {
 	width: 100%;
 	border: none;
 	outline: none;
 	font-size: 1.125rem;
 	font-weight: 400;
 }
-.input_field::placeholder {
+.inputFields::placeholder {
 	color: #160f2980;
 	opacity: 0.6;
+}
+.input.error {
+	border-color: #b65c34; /* Цвет границы при ошибке */
 }
 .error_message {
 	color: #b65c34;
 	font-size: 15px;
-	margin-top: 0;
+	margin-top: 5px;
 }
 .eye_icon {
 	cursor: pointer;
@@ -67,7 +73,6 @@
 	display: flex;
 	width: 100%;
 	justify-content: center;
-	
 }
 .submit_button {
 	font-size: 1.15rem;
@@ -75,8 +80,6 @@
 	width: 12.5rem;
 	padding: 20px 0;
 	transition: all 0.3s ease-in-out;
-	border: 1px solid #160F29;
-	color: #160F29;
-	
+	border: 1px solid #160f29;
+	color: #160f29;
 }
-

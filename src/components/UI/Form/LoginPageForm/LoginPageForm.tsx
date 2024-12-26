@@ -2,18 +2,19 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { Button } from '../../Button/Button'
 import s from './LoginPageForm.module.css'
 import { ReactSVG } from 'react-svg'
-import { email, lock, eye } from '../../../assets/img'
 // import { useDispatch } from 'react-redux'
 // import { AppDispatch } from '../../../Redux/Reducers/redux-store'
-import { usePasswordVisible } from '../../../hooks/usePasswordVisible'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { formLoginValues } from '../../../app/types/formLoginValues'
-import { validateLoginSchema } from '../../../utils/validateLoginSchema'
-import { useFormModal } from '../../../hooks/useFormModal'
-import { ModalForgetPassword } from '../../modal/ModalForgetPassword'
-import { ModalResetPassword } from '../../modal/ModalResetPassword'
+import { ModalForgetPassword } from '../../modal/ModalForgetPassword/ModalForgetPassword'
+import { ModalResetPassword } from '../../modal/ModalResetPassword/ModalResetPassword'
 import { createPortal } from 'react-dom'
 import { NavLink } from 'react-router'
+import { formLoginValues } from '../../../../app/types/formLoginValues'
+import { validateLoginSchema } from '../../../../utils/validateLoginSchema'
+import { usePasswordVisible } from '../../../../hooks/usePasswordVisible'
+import { useFormModal } from '../../../../hooks/useFormModal'
+import { email, eye, lock } from '../../../../assets/img'
+import clsx from 'clsx'
 export const LoginPageForm = () => {
 	const {
 		register,
@@ -44,36 +45,44 @@ export const LoginPageForm = () => {
 			<h1 className={s.logIn_title}>ВХОД</h1>
 			<form className={s.logIn_form} onSubmit={handleSubmit(onSubmit)}>
 				<div className={s.input_container}>
-					<ReactSVG src={email} />
-					<input
-						className={s.input_field}
-						id='email'
-						type='email'
-						placeholder='example@mail.ru'
-						{...register('email')}
-					/>
+					<div className={clsx(s.input, { [s.error]: errors.email })}>
+						<ReactSVG src={email} />
+						<input
+							className={clsx(s.inputFields, {
+								[s.error]: errors.email,
+							})}
+							id='email'
+							type='email'
+							placeholder='example@mail.ru'
+							{...register('email')}
+						/>
+					</div>
+					{errors.email && (
+						<p className={s.error_message}>{errors.email.message}</p>
+					)}
 				</div>
-				{errors.email && (
-					<p className={s.error_message}>{errors.email.message}</p>
-				)}
 				<div className={s.input_container}>
-					<ReactSVG src={lock} />
-					<input
-						className={s.input_field}
-						id='password'
-						type={passwordVisible.visible ? 'text' : 'password'}
-						placeholder='strongPsW2#'
-						{...register('password')}
-					/>
-					<ReactSVG
-						className={s.eye_icon}
-						src={eye}
-						onClick={passwordVisible.handleOnClick}
-					/>
+					<div className={clsx(s.input, { [s.error]: errors.password })}>
+						<ReactSVG src={lock} />
+						<input
+							className={clsx(s.inputFields, {
+								[s.error]: errors.password,
+							})}
+							id='password'
+							type={passwordVisible.visible ? 'text' : 'password'}
+							placeholder='strongPsW2#'
+							{...register('password')}
+						/>
+						<ReactSVG
+							className={s.eye_icon}
+							src={eye}
+							onClick={passwordVisible.handleOnClick}
+						/>
+					</div>
+					{errors.password && (
+						<p className={s.error_message}>{errors.password.message}</p>
+					)}
 				</div>
-				{errors.password && (
-					<p className={s.error_message}>{errors.password.message}</p>
-				)}
 				<p
 					className={s.forgot_password}
 					onClick={modalForgetPassword.handleOnClick}
@@ -98,7 +107,7 @@ export const LoginPageForm = () => {
 				)}
 				{/* для формы в форме createPortal */}
 				<div className={s.button_container}>
-					<NavLink to={'/booksPage'} >
+					<NavLink to={'/booksPage'}>
 						<Button
 							className={s.submit_button}
 							type='submit'

@@ -3,7 +3,7 @@ import { LogoAndName } from '../LogoAndName/LogoAndName'
 import { NavLink } from 'react-router'
 import { ReactSVG } from 'react-svg'
 import { search, unknownAvatar } from '../../../assets/img'
-import { Line } from '../../../UI/Line/Line'
+import { Line } from '../../UI/Line/Line'
 
 export const Header = () => {
 	return (
@@ -23,7 +23,7 @@ export const Header = () => {
 							<ReactSVG src={search} className={s.search_icon} />
 						</div>
 					</form>
-					<NavLink to={'/'}>
+					<NavLink to={'/userPage'}>
 						<ReactSVG src={unknownAvatar} />
 					</NavLink>
 				</div>

@@ -1,11 +1,11 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Button } from '../Button/Button'
-import { Modal } from './Modal'
+import { Button } from '../../Button/Button'
+import { Modal } from '../Modal'
 import s from './ModalForgetPassword.module.css'
-import { formForgetPasswordValues } from '../../app/types/formForgetPasswordValues'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { validateForgetPasswordSchema } from '../../utils/validateForgetPasswordSchema'
 import clsx from 'clsx'
+import { formForgetPasswordValues } from '../../../../app/types/formForgetPasswordValues'
+import { validateForgetPasswordSchema } from '../../../../utils/validateForgetPasswordSchema'
 
 interface ModalForgetPasswordProps {
 	visible: boolean

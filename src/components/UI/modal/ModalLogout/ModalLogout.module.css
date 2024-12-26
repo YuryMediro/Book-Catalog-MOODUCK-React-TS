@@ -1,0 +1,19 @@
+.iconContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+.buttonContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+}
+.button {
+	padding: 20px 0;
+	font-size: 1.15rem;
+	transition: all 0.3s ease-in-out;
+	width: 100%;
+}
