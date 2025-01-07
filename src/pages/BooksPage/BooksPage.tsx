@@ -4,7 +4,11 @@ export const BooksPage = () => {
 	return (
 		<div className={s.wrapper}>
 			<Layout>
-				<div className={s.content}>Books Page</div>
+				<div className={s.main}>
+					<div>books</div>
+
+					<div>sdfsdf</div>
+				</div>
 			</Layout>
 		</div>
 	)

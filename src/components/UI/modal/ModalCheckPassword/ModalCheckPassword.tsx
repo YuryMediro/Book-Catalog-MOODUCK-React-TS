@@ -4,11 +4,11 @@ import { Modal } from '../Modal'
 import s from './ModalCheckPassword.module.css'
 import { yupResolver } from '@hookform/resolvers/yup'
 import clsx from 'clsx'
-import { usePasswordVisible } from '../../../../hooks/usePasswordVisible'
 import { ReactSVG } from 'react-svg'
 import { eye } from '../../../../assets/img'
 import { formCheckPasswordValues } from '../../../../app/types/formCheckPasswordValues'
 import { validateCheckPasswordSchema } from '../../../../utils/validateCheckPasswordSchema'
+import { usePasswordVisible } from '../../../../hooks'
 
 interface ModalCheckPasswordProps {
 	visible: boolean

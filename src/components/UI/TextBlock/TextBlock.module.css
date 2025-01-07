@@ -1,0 +1,21 @@
+.textBlock {
+	transition: all ease-in;
+}
+.textContent {
+	color: #160f29;
+	font-size: 20px;
+	font-weight: 400;
+}
+.toggleButton {
+	cursor: pointer;
+	text-align: center;
+	font-size: 20px;
+	font-weight: 600;
+	color: #246a73;
+	transition: all ease-in;
+	margin-top: 20px;
+}
+
+.toggleButton:hover {
+	color: #160f29;
+}

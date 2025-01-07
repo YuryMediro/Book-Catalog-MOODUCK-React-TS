@@ -1,0 +1,25 @@
+.bookElement {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	width: 200px;
+	align-items: center;
+}
+
+.bookTitle {
+	color: #160f29;
+	font-size: 16px;
+	font-weight: 400;
+}
+.bookAuthor {
+	color: #160f2980;
+	font-size: 16px;
+	font-weight: 400;
+	margin-top: 10px;
+}
+.button {
+	width: 100%;
+	padding: 10px;
+	transition: all 0.3s ease-in-out;
+	font-size: 1.15rem;
+}

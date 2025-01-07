@@ -1,6 +1,8 @@
+import { BookElement } from '../../components/BooksComponents/BookElement'
 import { Layout } from '../../components/Layout/Layout'
+import { Comments } from '../../components/UI/Comments/Comments'
 import { Line } from '../../components/UI/Line/Line'
-import { UserSettings } from '../../components/UserComponents/UserSettins'
+import { UserSettings } from '../../components/UserComponents/UserSettings'
 import s from './UserPage.module.css'
 
 export const UserPage = () => {
@@ -8,11 +10,23 @@ export const UserPage = () => {
 		<div className={s.wrapper}>
 			<Layout>
 				<div className={s.main}>
-					<div>
-						<div>
-							<p>Личные данные</p>
-							<UserSettings/>
-							<Line/>
+					<div className={s.section}>
+						<p className={s.sectionTitle}>Личные данные</p>
+						<UserSettings />
+						<Line />
+					</div>
+					<div className={s.section}>
+						<p className={s.sectionTitle}>Закладки</p>
+						<div className={s.bookmarksList}>
+							<BookElement />
+						</div>
+						<p className={s.showMoreBook}>Показать больше книг</p>
+						<Line />
+					</div>
+					<div className={s.section}>
+						<p className={s.sectionTitle}>Комментарии</p>
+						<div className={s.commentsContainer}>
+							<Comments />
 						</div>
 					</div>
 				</div>

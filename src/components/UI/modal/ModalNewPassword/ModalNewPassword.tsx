@@ -8,8 +8,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { formNewPasswordValues } from '../../../../app/types/formNewPasswordValues'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { validateNewPasswordSchema } from '../../../../utils/validateNewPasswordSchema'
-import { usePasswordVisible } from '../../../../hooks/usePasswordVisible'
-import { useConfirmPasswordVisible } from '../../../../hooks/useConfirmPasswordVisible'
+import { useConfirmPasswordVisible, usePasswordVisible } from '../../../../hooks'
 
 interface ModalNewPasswordProps {
 	visible: boolean

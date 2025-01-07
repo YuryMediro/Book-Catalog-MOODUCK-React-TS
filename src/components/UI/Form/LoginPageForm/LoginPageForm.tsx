@@ -11,10 +11,9 @@ import { createPortal } from 'react-dom'
 import { NavLink } from 'react-router'
 import { formLoginValues } from '../../../../app/types/formLoginValues'
 import { validateLoginSchema } from '../../../../utils/validateLoginSchema'
-import { usePasswordVisible } from '../../../../hooks/usePasswordVisible'
-import { useFormModal } from '../../../../hooks/useFormModal'
 import { email, eye, lock } from '../../../../assets/img'
 import clsx from 'clsx'
+import { useFormModal, usePasswordVisible } from '../../../../hooks'
 export const LoginPageForm = () => {
 	const {
 		register,

@@ -1,0 +1,87 @@
+.wrapper {
+	display: flex;
+	margin-top: 30px;
+	width: 100%;
+	margin-bottom: 30px;
+}
+.bookInfo {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+	margin-left: 59px;
+}
+.bookTitle {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.title {
+	color: #160f29;
+	font-size: 25px;
+	font-weight: 600;
+}
+.author {
+	color: #160f2980;
+	font-size: 20px;
+	font-weight: 400;
+}
+.bookDescription {
+	height: 162px;
+	width: 100%;
+	max-width: 540px;
+}
+.description {
+	color: #160f29;
+	font-size: 20px;
+	font-weight: 400;
+}
+.readMore {
+	color: #b65c34;
+	font-size: 18px;
+	font-weight: 600;
+	cursor: pointer;
+	margin-top: 20px;
+}
+.readMore:hover {
+	color: #246a73;
+}
+.details {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	margin-top: 131px;
+}
+.detail {
+	display: flex;
+	justify-content: space-between;
+	width: 23.75rem;
+}
+.detailLabel {
+	color: #160f2980;
+	font-size: 18px;
+	font-weight: 400;
+	width: 180px;
+}
+.detailValue {
+	color: #160f29;
+	font-size: 18px;
+	font-weight: 400;
+	width: 146px;
+}
+.allDetails {
+	cursor: pointer;
+	color: #b65c34;
+	font-size: 18px;
+	font-weight: 600;
+}
+.allDetails:hover {
+	color: #246a73;
+}
+.button {
+	color: #160f29;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 15px 0;
+	margin-top: 50px;
+	width: 33.75rem;
+}

@@ -2,7 +2,6 @@ import { ReactSVG } from 'react-svg'
 import s from './UserSettings.module.css'
 import { barcode, goose } from '../../assets/img'
 import { Button } from '../UI/Button/Button'
-import { useFormModal } from '../../hooks/useFormModal'
 import { ModalUsernameVisible } from '../UI/modal/ModalUsernameVisible/ModalUsernameVisible'
 import { ModalEmailVisible } from '../UI/modal/ModalEmailVisible/ModalEmailVisible'
 import { ModalCheckPassword } from '../UI/modal/ModalCheckPassword/ModalCheckPassword'
@@ -10,6 +9,7 @@ import { ModalNewPassword } from '../UI/modal/ModalNewPassword/ModalNewPassword'
 import { createPortal } from 'react-dom'
 import { ModalChangePhoto } from '../UI/modal/ModalChangePhoto/ModalChangePhoto'
 import { ModalLogout } from '../UI/modal/ModalLogout/ModalLogout'
+import { useFormModal } from '../../hooks'
 
 export const UserSettings = () => {
 	const modalUsernameVisible = useFormModal(false)

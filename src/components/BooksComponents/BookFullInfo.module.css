@@ -1,0 +1,55 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	margin-top: 30px;
+	width: 100%;
+	margin-bottom: 30px;
+}
+.bookDescription {
+	height: 190px;
+	width: 100%;
+	max-width: 943px;
+}
+.description {
+	color: #160f29;
+	font-size: 20px;
+	font-weight: 400;
+}
+.details {
+	display: flex;
+	flex-direction: column;
+	margin-top: 30px;
+}
+.titleDetails {
+	color: #160f29;
+	font-size: 25px;
+	font-weight: 600;
+}
+.detailsContainer {
+	display: flex;
+    gap: 50px;
+    margin-top: 30px;
+}
+.gap{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.detail {
+	display: flex;
+	justify-content: space-between;
+    gap: 53px;
+    
+}
+.detailLabel {
+	color: #160f2980;
+	font-size: 18px;
+	font-weight: 400;
+    
+}
+.detailValue {
+	color: #160f29;
+	font-size: 18px;
+	font-weight: 400;
+	width: 186px
+}

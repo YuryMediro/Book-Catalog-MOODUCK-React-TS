@@ -7,12 +7,10 @@ import { ReactSVG } from 'react-svg'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { ModalCompleteReg } from '../../modal/ModalCompleteReg/ModalCompleteReg'
 import { email, eye, lock, user } from '../../../../assets/img'
-import { usePasswordVisible } from '../../../../hooks/usePasswordVisible'
 import { validateRegSchema } from '../../../../utils/validadeRegSchema'
 import { formRegValues } from '../../../../app/types/formRegValues'
-import { useConfirmPasswordVisible } from '../../../../hooks/useConfirmPasswordVisible'
-import { useFormModal } from '../../../../hooks/useFormModal'
 import clsx from 'clsx'
+import { useConfirmPasswordVisible, useFormModal, usePasswordVisible } from '../../../../hooks'
 
 export const RegistrationPageForm = () => {
 	const {

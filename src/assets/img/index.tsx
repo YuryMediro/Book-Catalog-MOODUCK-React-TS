@@ -11,6 +11,14 @@ import goose from './goose.svg'
 import barcode from './barcode.svg'
 import imageBeforeHover from './imageBeforeHover.svg'
 import duckFootprints from './duckFootprints.svg'
+import duck from './duck.svg'
+import bubbles from './bubbles.svg'
+import starPainted from './starPainted.svg'
+import starNotPainted from './starNotPainted.svg'
+import like from './like.svg'
+import dislike from './dislike.svg'
+import coverIsMissing from './coverIsMissing.svg'
+import Cover from './Cover.png'
 
 export {
 	email,
@@ -26,4 +34,12 @@ export {
 	barcode,
 	imageBeforeHover,
 	duckFootprints,
+	duck,
+	bubbles,
+	starPainted,
+	starNotPainted,
+	like,
+	dislike,
+	coverIsMissing,
+	Cover,
 }
