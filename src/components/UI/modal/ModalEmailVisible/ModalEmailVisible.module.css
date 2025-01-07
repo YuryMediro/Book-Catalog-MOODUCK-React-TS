@@ -1,0 +1,32 @@
+.formContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+.inputContainer {
+	display: flex;
+	flex-direction: column;
+}
+.input {
+	font-size: 1.125rem;
+	border-radius: 5px;
+	border: 2px solid #160f2980;
+	padding: 16px 12px;
+}
+.input.error {
+	border-color: #b65c34; /* Цвет границы при ошибке */
+}
+.error_message {
+	color: #b65c34;
+	font-size: 15px;
+	margin-top: 5px;
+}
+.inputField::placeholder {
+	color: #160f2980;
+	opacity: 0.6;
+}
+.button {
+	padding: 20px 0;
+	font-size: 1.15rem;
+	transition: all 0.3s ease-in-out;
+}

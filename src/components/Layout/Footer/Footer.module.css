@@ -1,0 +1,32 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-top: 100px;
+	width: 100%;
+	width: 87.5rem;
+	height: 100%;
+}
+
+.footer_top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #246a73;
+	padding: 30px 42px;
+	width: 100%;
+}
+
+.footer_line {
+	height: 74px;
+	border: 1px solid #ffffff;
+}
+
+.footer_logo {
+	color: #ffffff;
+}
+
+.footer_text {
+	text-align: center;
+	color: #160f29;
+}

@@ -4,7 +4,8 @@ export const useFormModal = (initial: boolean) => {
 	const [visible, setVisible] = useState<boolean>(initial)
 
 	const handleOnClick = () => {
-		setVisible(!visible)
+		setVisible(prev => !prev)
 	}
+
 	return { visible, handleOnClick }
 }

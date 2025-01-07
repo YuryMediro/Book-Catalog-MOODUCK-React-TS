@@ -7,8 +7,9 @@
 }
 .left_side {
 	display: flex;
-	height: 50rem;
-	width: 29.063rem;
+	height: 57.4rem;
+	width: 100%;
+	max-width: 32rem;
 	flex-direction: column;
 	justify-content: space-between;
 	background-color: #246a73;
@@ -17,13 +18,14 @@
 
 .logo {
 	color: #ffffff;
+	justify-content: center;
 }
 .register_container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: 9px;
+	gap: 40px;
 }
 .register_text {
 	color: #ffffff;
@@ -34,7 +36,7 @@
 .register_button {
 	width: 15.813rem;
 	background-color: #ffffff;
-	padding: 1rem 0;
+	padding: 20px 0;
 	color: #246a73;
 	transition: all 0.3s ease-in-out;
 }

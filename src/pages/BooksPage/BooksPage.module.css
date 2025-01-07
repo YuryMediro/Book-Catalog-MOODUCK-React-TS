@@ -1,0 +1,8 @@
+.wrapper {
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	background-color: #ffffff;
+	min-height: 100vh;
+	padding-top: 21px;
+}
