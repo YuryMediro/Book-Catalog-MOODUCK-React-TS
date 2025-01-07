@@ -1,8 +1,13 @@
 .wrapper {
-	border: 1px solid black;
 	display: flex;
 	flex-direction: column;
 	background-color: #ffffff;
 	min-height: 100vh;
 	padding-top: 21px;
+}
+.main {
+	display: flex;
+	flex-direction: column;
+	margin: 30px 42px 0px 42px;
+	
 }

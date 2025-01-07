@@ -1,0 +1,27 @@
+.preloaderWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 8rem;
+}
+.duckIcon {
+	position: relative;
+	left: 130px;
+}
+.bubblesIcon {
+	position: relative;
+	bottom: 170px;
+	left: -20px;
+	animation-name: spin;
+	animation-duration: 5000ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}

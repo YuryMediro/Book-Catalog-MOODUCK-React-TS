@@ -1,5 +1,4 @@
 .wrapper {
-	border: 1px solid black;
 	display: flex;
 	flex-direction: column;
 	background-color: #ffffff;
@@ -15,28 +14,31 @@
 .section {
 	display: flex;
 	flex-direction: column;
+	/* gap: 30px; */
+}
+.sectionTitleBook {
+	font-size: 1rem;
+	font-weight: 400;
+	color: #160f2980;
+	margin-top: 30px;
 }
 .sectionTitle {
-	margin-top: 30px;
 	color: #160f29;
 	font-size: 1.563rem;
 	font-weight: 600;
-}
-.bookmarksList {
 	margin-top: 30px;
 }
-.showMoreBook {
-	color: #b65c34;
-	font-size: 20px;
-	font-weight: 600;
-	text-align: center;
-	margin-top: 50px;
+.titleContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 30px;
 	margin-bottom: 30px;
-	cursor: pointer;
 }
-.showMoreBook:hover {
-	color: #246a73;
-}
-.commentsContainer {
-	margin-top: 30px;
+.button {
+	color: #160f29;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 12px;
+	transition: all 0.3s ease-in-out;
 }

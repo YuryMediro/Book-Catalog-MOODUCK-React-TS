@@ -7,7 +7,7 @@
 }
 .left_side {
 	display: flex;
-	height: 57.4rem;
+	height: 100vh;
 	width: 100%;
 	max-width: 32rem;
 	flex-direction: column;
