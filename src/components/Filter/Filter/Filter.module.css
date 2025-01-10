@@ -1,0 +1,50 @@
+.container {
+	height: 800px;
+	width: 380px;
+	border: 2px solid #160f29;
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.title {
+	color: #160f29;
+	font-size: 1rem;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.line {
+	height: 1px;
+	width: 100%;
+	background-color: black;
+}
+.section {
+	display: flex;
+	flex-direction: column;
+}
+.scrollable {
+	margin-top: 10px;
+}
+.inputContainer {
+	display: flex;
+	align-items: center;
+	border: 2px solid #160f2980;
+	padding: 3px 10px;
+	border-radius: 2px;
+	margin-top: 10px;
+}
+.input {
+	width: 100%;
+}
+.scrollableAuthors {
+	margin-top: 10px;
+}
+.buttonContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.button {
+	width: 100%;
+	padding: 10px 0;
+}

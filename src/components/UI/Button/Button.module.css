@@ -6,9 +6,11 @@
 	text-transform: uppercase;
 	border: 1px solid;
 	border-radius: 5px;
+	transition: all 0.3s ease-in-out;
 }
 .button:hover {
 	border-color: #160f29;
 	background-color: #160f29;
 	color: #ffffff;
+	
 }

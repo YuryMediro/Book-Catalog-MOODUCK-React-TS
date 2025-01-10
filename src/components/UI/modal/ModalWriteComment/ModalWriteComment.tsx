@@ -23,20 +23,18 @@ export const ModalWriteComment = ({
 			<form className={s.formContainer}>
 				<StarRating rating={rating} handleRating={() => {}} />
 				<div className={s.inputContainer}>
-					<input
-						type='text'
-						placeholder='Заголовок *'
-						className={s.inputField}
-					/>
+					<input type='text' placeholder='Заголовок' className={s.inputField} />
 				</div>
 				<div className={s.inputContainer}>
 					<input
 						type='text'
-						placeholder='Комментарий *'
+						placeholder='Комментарий'
 						className={s.inputField}
 					/>
 				</div>
-				<Button className={s.button}>Опубликовать</Button>
+				<Button className={s.button} type='submit'>
+					Опубликовать
+				</Button>
 			</form>
 		</Modal>
 	)

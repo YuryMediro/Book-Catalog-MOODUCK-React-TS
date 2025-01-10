@@ -1,0 +1,37 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	width: 200px;
+	gap: 20px;
+}
+.image {
+	width: 200px;
+	height: 306px;
+}
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	width: 100%;
+}
+.title {
+	overflow: hidden; /* Скрыть переполняющее содержимое */
+	text-overflow: ellipsis; /* Добавить многоточие в конце обрезанного текста */
+	white-space: nowrap; /* Предотвратить перенос текста на новую строку */
+	color: #160f29;
+	font-size: 1rem;
+	font-weight: 400;
+}
+.authors {
+	overflow: hidden; /* Скрыть переполняющее содержимое */
+	text-overflow: ellipsis; /* Добавить многоточие в конце обрезанного текста */
+	white-space: nowrap; /* Предотвратить перенос текста на новую строку */
+	color: #160f2980;
+	font-size: 1rem;
+	font-weight: 400;
+}
+.button {
+	width: 100%;
+	padding: 10px 0;
+   
+}

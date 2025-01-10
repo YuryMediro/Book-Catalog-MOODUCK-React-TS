@@ -5,9 +5,8 @@
 	min-height: 100vh;
 	padding-top: 21px;
 }
-.main {
+.layout {
 	display: flex;
-	flex-direction: column;
 	margin: 30px 42px 0px 42px;
-	
+	gap: 34px;
 }

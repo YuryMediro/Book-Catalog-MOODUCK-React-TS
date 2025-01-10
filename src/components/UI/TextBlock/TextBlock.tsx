@@ -21,7 +21,7 @@ export const TextBlock = ({ isExpanded, setIsExpanded }: TextBlockProps) => {
 			<div className={s.textContent}>
 				{isExpanded ? text : `${text.slice(0, 50)}...`}
 			</div>
-			<button className={s.toggleButton} onClick={toggleText}>
+			<button className={s.toggleButton} onClick={toggleText} type='button'>
 				{isExpanded ? 'Скрыть' : 'Показать ещё'}
 			</button>
 		</div>

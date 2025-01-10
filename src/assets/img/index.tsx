@@ -19,6 +19,7 @@ import like from './like.svg'
 import dislike from './dislike.svg'
 import coverIsMissing from './coverIsMissing.svg'
 import Cover from './Cover.png'
+import galka from './galka.svg'
 
 export {
 	email,
@@ -42,4 +43,5 @@ export {
 	dislike,
 	coverIsMissing,
 	Cover,
+	galka,
 }

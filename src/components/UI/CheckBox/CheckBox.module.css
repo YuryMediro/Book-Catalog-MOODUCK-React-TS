@@ -1,0 +1,21 @@
+.container {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+.button {
+	height: 22px;
+	width: 22px;
+	border-radius: 2px;
+	border: 2px solid #160f29;
+}
+.info {
+	color: #160f29;
+	font-size: 1rem;
+	font-weight: 400;
+}
+.checked {
+	position: relative;
+	background-color: #160f29;
+}
+
