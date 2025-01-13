@@ -40,3 +40,11 @@
 .modal_close {
 	cursor: pointer;
 }
+
+@media (max-width: 767px) {
+	.modal_content {
+	gap: 20px;
+	padding: 40px 15px;
+}
+}
+

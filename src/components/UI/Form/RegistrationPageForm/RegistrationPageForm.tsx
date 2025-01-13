@@ -10,7 +10,11 @@ import { email, eye, lock, user } from '../../../../assets/img'
 import { validateRegSchema } from '../../../../utils/validadeRegSchema'
 import { formRegValues } from '../../../../app/types/formRegValues'
 import clsx from 'clsx'
-import { useConfirmPasswordVisible, useFormModal, usePasswordVisible } from '../../../../hooks'
+import {
+	useConfirmPasswordVisible,
+	useFormModal,
+	usePasswordVisible,
+} from '../../../../hooks'
 
 export const RegistrationPageForm = () => {
 	const {

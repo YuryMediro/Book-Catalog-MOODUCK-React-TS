@@ -69,3 +69,12 @@
 	padding: 20px 0;
 	transition: all 0.3s ease-in-out;
 }
+
+@media (max-width: 767px) {
+	.input {
+		width: 21rem;
+	}
+	.submit_button {
+		padding: 15px 0;
+	}
+}

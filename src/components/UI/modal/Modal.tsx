@@ -17,7 +17,6 @@ export const Modal = ({
 	children,
 	centerTitle = false,
 }: ModalProps) => {
-
 	const handleOnClick = () => {
 		setVisible(false)
 	}

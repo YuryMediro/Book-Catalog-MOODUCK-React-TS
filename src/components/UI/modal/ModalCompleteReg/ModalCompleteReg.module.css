@@ -15,3 +15,10 @@
 	font-size: 1.15rem;
 	transition: all 0.3s ease-in-out;
 }
+
+@media (max-width: 767px) {
+	.description {
+		font-size: 1.1rem;
+		
+	}
+}

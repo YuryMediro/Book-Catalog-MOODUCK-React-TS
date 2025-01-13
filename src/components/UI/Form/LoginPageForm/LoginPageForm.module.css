@@ -83,3 +83,12 @@
 	border: 1px solid #160f29;
 	color: #160f29;
 }
+@media (max-width: 767px) {
+	.input {
+		width: 21rem;
+	}
+	.submit_button {
+		padding: 15px 0;
+	}
+	
+}

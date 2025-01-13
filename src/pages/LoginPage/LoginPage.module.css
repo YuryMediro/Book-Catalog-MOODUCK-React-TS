@@ -5,7 +5,7 @@
 	align-items: center;
 	justify-content: center;
 }
-.left_side {
+.leftSide {
 	display: flex;
 	height: 100vh;
 	width: 100%;
@@ -20,20 +20,20 @@
 	color: #ffffff;
 	justify-content: center;
 }
-.register_container {
+.registerContainer {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: 40px;
+	gap: 36px;
 }
-.register_text {
+.registerText {
 	color: #ffffff;
 	text-align: center;
 	font-size: 1.5rem;
-	font-weight: bold;
+	font-weight: 700;
 }
-.register_button {
+.button {
 	width: 15.813rem;
 	background-color: #ffffff;
 	padding: 20px 0;
@@ -45,3 +45,58 @@
 	width: 100%;
 	background-color: #ffffff;
 }
+
+.mobileContainer {
+	display: flex;
+	min-height: 100vh;
+	height: 100%;
+	width: 100%;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	background-color: #246a73;
+}
+.mobileLogo {
+	color: #ffffff;
+	margin-top: 10px;
+}
+.mobileFormContainer {
+	height: 590px;
+	width: 100%;
+}
+.mobileTextContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
+}
+.mobileText {
+	color: #ffffff;
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.mobileButton {
+	width: 15.813rem;
+	background-color: #ffffff;
+	padding: 15px 0;
+	color: #246a73;
+	transition: all 0.3s ease-in-out;
+}
+.mobileLine {
+	height: 2px;
+	width: 325px;
+	background-color: #ffffff;
+}
+
+@media (max-width: 1024px) {
+	.leftSide {
+		max-width: 418px;
+	}
+}
+
+/* @media (max-width: 767px) {
+} */
