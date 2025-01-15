@@ -1,4 +1,3 @@
-import { ReactSVG } from 'react-svg'
 import s from './UserSettings.module.css'
 import { barcode, goose } from '../../assets/img'
 import { Button } from '../UI/Button/Button'
@@ -22,24 +21,24 @@ export const UserSettings = () => {
 		<section className={s.wrapper}>
 			<div className={s.card}>
 				<div className={s.imgContainer}>
-					<ReactSVG src={goose} className={s.goose} />
+					<img src={goose} className={s.goose} alt='' />
 				</div>
 				<div className={s.infoContainer}>
-					<div className={s.barcode}>
-						<ReactSVG src={barcode} className={s.barcode} />
+					<div>
+						<img src={barcode} className={s.imgBarcode} alt='' />
 					</div>
 					<div className={s.info}>
 						<div className={s.infoItem}>
 							<p className={s.label}>Имя пользователя</p>
-							<p className={`${s.value} ${s.data1}`}>Mediro</p>
+							<p className={s.value}>Mediro</p>
 						</div>
 						<div className={s.infoItem}>
 							<p className={s.label}>E-mail</p>
-							<p className={`${s.value} ${s.data2}`}>sagn375@gmail.com</p>
+							<p className={s.value}>sagn375@gmail.com</p>
 						</div>
 						<div className={s.infoItem}>
 							<p className={s.label}>Пароль</p>
-							<p className={`${s.value} ${s.data3}`}>***********</p>
+							<p className={s.value}>***********</p>
 						</div>
 					</div>
 				</div>
@@ -111,7 +110,7 @@ export const UserSettings = () => {
 				)}
 
 				<Button
-					className={s.button}
+					className={s.outButton}
 					type='button'
 					onClick={modalLogoutVisible.handleOnClick}
 				>

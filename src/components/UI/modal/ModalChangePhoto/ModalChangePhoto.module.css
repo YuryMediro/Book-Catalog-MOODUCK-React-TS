@@ -13,29 +13,30 @@
 	font-size: 1.15rem;
 	transition: all 0.3s ease-in-out;
 }
-.uploadPhoto{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
+.uploadPhoto {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
 }
-.uploadText{
-    color: #160F29;
-    font-size: 1.563rem;
-    font-weight: 600;
+.uploadText {
+	color: #160f29;
+	font-size: 1.563rem;
+	font-weight: 600;
+	text-align: center;
 }
-.buttonContainer{
-    display: flex;
-    gap: 30px;
+.buttonContainer {
+	display: flex;
+	gap: 30px;
 }
-.button{
-    padding: 20px 30px;
+.button {
+	padding: 20px;
 	font-size: 1.15rem;
 	transition: all 0.3s ease-in-out;
 }
 .deleteButton {
-	padding: 20px 30px;
+	padding: 20px;
 	font-size: 1.15rem;
 	transition: all 0.3s ease-in-out;
 }
@@ -44,4 +45,13 @@
 	border-color: #b65c34;
 	background-color: #b65c34;
 	color: #ffffff;
+}
+
+@media (max-width: 580px) {
+	.uploadText {
+		font-size: 1.2rem;
+	}
+	.buttonContainer {
+		flex-direction: column;
+	}
 }

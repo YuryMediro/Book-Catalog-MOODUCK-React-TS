@@ -7,12 +7,10 @@
 }
 .buttonContainer {
 	display: flex;
-	justify-content: center;
-	align-items: center;
 	gap: 30px;
 }
 .button {
-	padding: 20px 0;
+	padding: 20px;
 	font-size: 1.15rem;
 	transition: all 0.3s ease-in-out;
 	width: 100%;

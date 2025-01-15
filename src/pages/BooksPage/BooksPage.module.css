@@ -4,6 +4,8 @@
 	background-color: #ffffff;
 	min-height: 100vh;
 	padding-top: 21px;
+	width: 100%;
+	max-width: 1400px;
 }
 .layout {
 	display: flex;
