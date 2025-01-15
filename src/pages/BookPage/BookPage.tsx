@@ -23,11 +23,10 @@ export const BookPage = () => {
 						<Line />
 					</div>
 					<div className={s.section}>
-						<p className={s.sectionTitle}>О книге</p>
 						<BookFullInfo />
 						<Line />
 					</div>
-					<div className={s.section}>
+					<div className={s.commentSection}>
 						<div className={s.titleContainer}>
 							<p className={s.sectionTitle}>Комментарии</p>
 							<Button

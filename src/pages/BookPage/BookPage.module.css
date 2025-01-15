@@ -4,7 +4,8 @@
 	background-color: #ffffff;
 	min-height: 100vh;
 	padding-top: 21px;
-	width: 1400px;
+	width: 100%;
+	max-width: 1400px;
 }
 .main {
 	display: flex;
@@ -14,13 +15,16 @@
 .section {
 	display: flex;
 	flex-direction: column;
-	/* gap: 30px; */
 }
 .sectionTitleBook {
 	font-size: 1rem;
 	font-weight: 400;
 	color: #160f2980;
 	margin-top: 30px;
+}
+.commentSection {
+	display: flex;
+	flex-direction: column;
 }
 .sectionTitle {
 	color: #160f29;
@@ -30,10 +34,11 @@
 }
 .titleContainer {
 	display: flex;
-	align-items: center;
+	align-items: baseline;
 	justify-content: space-between;
 	margin-top: 30px;
 	margin-bottom: 30px;
+	
 }
 .button {
 	color: #160f29;
@@ -41,4 +46,28 @@
 	font-weight: 600;
 	padding: 12px;
 	transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 1325px) {
+	.wrapper {
+		max-width: 990px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.wrapper {
+		max-width: 900px;
+	}
+}
+@media (max-width: 767px) {
+	.titleContainer {
+		display: flex;
+		flex-direction: column;
+		margin-top: 0px;
+		margin-bottom: 30px;
+		gap: 20px;
+	}
+	.button {
+		width: 100%;
+	}
 }

@@ -1,5 +1,4 @@
 .wrapper {
-	border: 1px solid black;
 	display: flex;
 	flex-direction: column;
 	background-color: #ffffff;
@@ -39,4 +38,11 @@
 }
 .commentsContainer {
 	margin-top: 30px;
+}
+
+@media (max-width: 1024px) {
+	
+}
+
+@media (max-width: 767px) {
 }
