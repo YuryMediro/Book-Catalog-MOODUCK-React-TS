@@ -10,7 +10,7 @@ interface BooksPageProps {
 }
 
 export const BooksPage = ({}: BooksPageProps) => {
-	const { colum, handleOnClickView } = useBooks({ initialColum: true })
+	const { colum, handleOnClickView } = useBooks({ initialColum: false })
 
 	return (
 		<div className={s.wrapper}>
@@ -22,6 +22,9 @@ export const BooksPage = ({}: BooksPageProps) => {
 					<div className={s.pagination}>
 						{colum ? (
 							<div className={s.bookColum}>
+								<BookColum />
+								<BookColum />
+								<BookColum />
 								<BookColum />
 								<BookColum />
 								<BookColum />
