@@ -1,0 +1,79 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+}
+.mainContainer {
+	display: flex;
+	width: 100%;
+	gap: 20px;
+}
+.image {
+	width: 265px;
+	height: 306px;
+    display: block;
+}
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	width: 100%;
+}
+.contentTitle {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.title {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 1rem;
+	color: #160f29;
+}
+.author {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 1rem;
+	color: #00000080;
+}
+
+.description {
+	height: 151px;
+	width: 100%;
+	font-size: 1rem;
+	color: #000000;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: wrap;
+}
+.buttonContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.5rem 0;
+}
+.publisher {
+	font-size: 1rem;
+	color: #00000080;
+}
+.button {
+	padding: 10px;
+}
+.hiddenButton {
+	padding: 10px;
+	display: none;
+}
+
+@media (max-width: 767px) {
+	.buttonContainer {
+		padding: 2.5rem 0;
+	}
+	.button {
+		display: none;
+	}
+	.hiddenButton {
+		display: block;
+		margin-bottom: 20px;
+	}
+}

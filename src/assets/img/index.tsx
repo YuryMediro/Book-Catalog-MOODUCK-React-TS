@@ -20,6 +20,8 @@ import dislike from './dislike.svg'
 import coverIsMissing from './coverIsMissing.svg'
 import Cover from './Cover.png'
 import galka from './galka.svg'
+import toggleButtonToList from './toggleButtonToList.svg'
+import toggleButtonToTiles from './toggleButtonToTiles.svg'
 
 export {
 	email,
@@ -44,4 +46,6 @@ export {
 	coverIsMissing,
 	Cover,
 	galka,
+	toggleButtonToList,
+	toggleButtonToTiles,
 }

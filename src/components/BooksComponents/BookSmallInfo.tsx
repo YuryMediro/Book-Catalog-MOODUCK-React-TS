@@ -5,7 +5,6 @@ import { Button } from '../UI/Button/Button'
 export const BookSmallInfo = () => {
 	return (
 		<section className={s.wrapper}>
-			{/* <ReactSVG src={coverIsMissing} /> */}
 			<img src={Cover} alt='' className={s.img} />
 			<div className={s.bookInfo}>
 				<div className={s.bookTitle}>

@@ -1,0 +1,18 @@
+.section {
+	display: flex;
+	height: 52px;
+	width: 100%;
+	gap: 1rem;
+}
+.button {
+	width: 100%;
+	padding: 15px 0;
+}
+.icons {
+	display: flex;
+	gap: 1rem;
+}
+.icon {
+	cursor: pointer;
+	width: 52px;
+}

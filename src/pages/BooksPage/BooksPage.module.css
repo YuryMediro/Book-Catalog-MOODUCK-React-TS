@@ -12,3 +12,57 @@
 	margin: 30px 42px 0px 42px;
 	gap: 34px;
 }
+.pagination {
+	/* width: 910px;  */
+	width: 100%;
+	max-width: 910px;
+}
+.bookColum{
+	display: flex;
+	flex-direction: column;
+	gap: 34px;
+	width: 100%;
+}
+.booksList {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	gap: 30px;
+}
+
+@media (max-width: 1399px) {
+	.wrapper {
+		max-width: 1170px;
+	}
+}
+/* @media (max-width: 1315px) {
+	.wrapper {
+		max-width: 1170px;
+	}
+} */
+@media (max-width: 1165px) {
+	.wrapper {
+		max-width: 990px;
+	}
+	.layout {
+		flex-direction: column;
+	}
+}
+@media (max-width: 985px) {
+	.wrapper {
+		max-width: 761px;
+	}
+}
+@media (max-width: 767px) {
+	.wrapper {
+		max-width: 590px;
+	}
+	.booksList {
+		justify-content: space-between;
+	}
+}
+@media (max-width: 517px) {
+	.booksList {
+		justify-content: center;
+	}
+}
