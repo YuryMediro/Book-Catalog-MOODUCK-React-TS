@@ -5,11 +5,7 @@ import { Layout } from '../../components/Layout/Layout'
 import { useBooks } from '../../hooks/useBooks'
 import s from './BooksPage.module.css'
 
-interface BooksPageProps {
-	setColum: (type: boolean) => void
-}
-
-export const BooksPage = ({}: BooksPageProps) => {
+export const BooksPage = () => {
 	const { colum, handleOnClickView } = useBooks({ initialColum: false })
 
 	return (
@@ -33,14 +29,14 @@ export const BooksPage = ({}: BooksPageProps) => {
 							</div>
 						) : (
 							<div className={s.booksList}>
-								<BookList />
-								<BookList />
-								<BookList />
-								<BookList />
-								<BookList />
-								<BookList />
-								<BookList />
-								<BookList />
+								<BookList id={''} title={''} authors={[]} img={''} />
+								<BookList id={''} title={''} authors={[]} img={''} />
+								<BookList id={''} title={''} authors={[]} img={''} />
+								<BookList id={''} title={''} authors={[]} img={''} />
+								<BookList id={''} title={''} authors={[]} img={''} />
+								<BookList id={''} title={''} authors={[]} img={''} />
+								<BookList id={''} title={''} authors={[]} img={''} />
+								<BookList id={''} title={''} authors={[]} img={''} />
 							</div>
 						)}
 					</div>
