@@ -7,8 +7,8 @@ import { ReactSVG } from 'react-svg'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { ModalCompleteReg } from '../../modal/ModalCompleteReg/ModalCompleteReg'
 import { email, eye, lock, user } from '../../../../assets/img'
-import { validateRegSchema } from '../../../../utils/validate/validadeRegSchema'
-import { formRegValues } from '../../../../utils/types/formRegValues'
+import { validateRegSchema } from '../../../../utils/validadeRegSchema'
+import { formRegValues } from '../../../../app/types/formRegValues'
 import clsx from 'clsx'
 import {
 	useConfirmPasswordVisible,

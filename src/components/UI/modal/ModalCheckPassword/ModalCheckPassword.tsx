@@ -6,8 +6,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import clsx from 'clsx'
 import { ReactSVG } from 'react-svg'
 import { eye } from '../../../../assets/img'
-import { formCheckPasswordValues } from '../../../../utils/types/formCheckPasswordValues'
-import { validateCheckPasswordSchema } from '../../../../utils/validate/validateCheckPasswordSchema'
+import { formCheckPasswordValues } from '../../../../app/types/formCheckPasswordValues'
+import { validateCheckPasswordSchema } from '../../../../utils/validateCheckPasswordSchema'
 import { usePasswordVisible } from '../../../../hooks'
 
 interface ModalCheckPasswordProps {
@@ -35,10 +35,10 @@ export const ModalCheckPassword = ({
 
 	const onSubmit: SubmitHandler<formCheckPasswordValues> = (data, event) => {
 		console.log({ data })
-		event?.preventDefault()
+        event?.preventDefault()
 		reset()
-		setVisible(false)
-		setNewPassword(true)
+        setVisible(false)
+        setNewPassword(true)
 		// Здесь можно добавить логику для отправки данных на сервер
 	}
 	return (
