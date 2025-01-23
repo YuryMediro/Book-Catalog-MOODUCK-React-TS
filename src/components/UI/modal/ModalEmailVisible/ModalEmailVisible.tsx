@@ -2,10 +2,10 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { Button } from '../../Button/Button'
 import { Modal } from '../Modal'
 import s from './ModalEmailVisible.module.css'
-import { formEmailValues } from '../../../../app/types/formEmailValues'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { validateEmailSchema } from '../../../../utils/validateEmailSchema'
+import { validateEmailSchema } from '../../../../utils/validate/validateEmailSchema'
 import clsx from 'clsx'
+import { formEmailValues } from '../../../../utils/types/formEmailValues'
 
 interface ModalEmailVisibleProps {
 	visible: boolean
