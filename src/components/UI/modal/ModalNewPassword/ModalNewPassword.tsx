@@ -5,10 +5,13 @@ import { eye } from '../../../../assets/img'
 import clsx from 'clsx'
 import { Button } from '../../Button/Button'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { formNewPasswordValues } from '../../../../app/types/formNewPasswordValues'
+import { formNewPasswordValues } from '../../../../utils/types/formNewPasswordValues'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { validateNewPasswordSchema } from '../../../../utils/validateNewPasswordSchema'
-import { useConfirmPasswordVisible, usePasswordVisible } from '../../../../hooks'
+import { validateNewPasswordSchema } from '../../../../utils/validate/validateNewPasswordSchema'
+import {
+	useConfirmPasswordVisible,
+	usePasswordVisible,
+} from '../../../../hooks'
 
 interface ModalNewPasswordProps {
 	visible: boolean
