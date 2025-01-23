@@ -1,5 +1,7 @@
 import axios, { AxiosInstance } from 'axios'
 
+
+
 const BASE_URL = 'http://localhost:3000/api'
 
 class APiError extends Error {
@@ -47,7 +49,6 @@ api.interceptors.response.use(
 		return Promise.reject(error)
 	}
 )
-
 
 // export const jsonApiInstance = async <T>(
 // 	url: string,
