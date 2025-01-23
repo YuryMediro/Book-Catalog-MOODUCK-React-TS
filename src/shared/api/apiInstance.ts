@@ -17,9 +17,7 @@ const api: AxiosInstance = axios.create({
 })
 
 // Сохраните токен в локальное хранилище
-// const accessToken =
-// 	'sl.CFF-CzEUFB9DQEWQV2zVuwsqV3VJVm4sJhcqY23Gue12pRkf1V60o9kXgKy9R6F6XVvwX6ZFGJQ1JST_sM_rcRNoi97zkyyGpgACjQF6Dbp65-PMvNeVeXzF6rpwpx8X8qfJ_2alsvqa'
-// localStorage.setItem('authToken', accessToken)
+
 
 // Интерцептор запросов для аутентификации
 api.interceptors.request.use(
