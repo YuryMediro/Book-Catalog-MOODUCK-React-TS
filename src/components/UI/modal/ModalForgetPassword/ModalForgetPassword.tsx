@@ -4,8 +4,8 @@ import { Modal } from '../Modal'
 import s from './ModalForgetPassword.module.css'
 import { yupResolver } from '@hookform/resolvers/yup'
 import clsx from 'clsx'
-import { formForgetPasswordValues } from '../../../../utils/types/formForgetPasswordValues'
 import { validateForgetPasswordSchema } from '../../../../utils/validate/validateForgetPasswordSchema'
+import { formForgetPasswordValues } from '../../../../utils/types/formForgetPasswordValues'
 
 interface ModalForgetPasswordProps {
 	visible: boolean

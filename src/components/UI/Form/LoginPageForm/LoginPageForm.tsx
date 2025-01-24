@@ -9,11 +9,11 @@ import { ModalForgetPassword } from '../../modal/ModalForgetPassword/ModalForget
 import { ModalResetPassword } from '../../modal/ModalResetPassword/ModalResetPassword'
 import { createPortal } from 'react-dom'
 import { NavLink } from 'react-router'
-import { formLoginValues } from '../../../../utils/types/formLoginValues'
 import { validateLoginSchema } from '../../../../utils/validate/validateLoginSchema'
 import { email, eye, lock } from '../../../../assets/img'
 import clsx from 'clsx'
 import { useFormModal, usePasswordVisible } from '../../../../hooks'
+import { formLoginValues } from '../../../../utils/types/formLoginValues'
 export const LoginPageForm = () => {
 	const {
 		register,

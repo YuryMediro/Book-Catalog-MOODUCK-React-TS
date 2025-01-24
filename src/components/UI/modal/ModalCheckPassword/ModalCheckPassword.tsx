@@ -6,9 +6,9 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import clsx from 'clsx'
 import { ReactSVG } from 'react-svg'
 import { eye } from '../../../../assets/img'
-import { formCheckPasswordValues } from '../../../../utils/types/formCheckPasswordValues'
 import { validateCheckPasswordSchema } from '../../../../utils/validate/validateCheckPasswordSchema'
 import { usePasswordVisible } from '../../../../hooks'
+import { formCheckPasswordValues } from '../../../../utils/types/formCheckPasswordValues'
 
 interface ModalCheckPasswordProps {
 	visible: boolean

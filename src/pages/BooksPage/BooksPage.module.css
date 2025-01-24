@@ -17,7 +17,7 @@
 	width: 100%;
 	max-width: 910px;
 }
-.bookColum{
+.bookColum {
 	display: flex;
 	flex-direction: column;
 	gap: 34px;
@@ -28,6 +28,14 @@
 	flex-wrap: wrap;
 	width: 100%;
 	gap: 30px;
+}
+.preloader {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
 }
 
 @media (max-width: 1399px) {

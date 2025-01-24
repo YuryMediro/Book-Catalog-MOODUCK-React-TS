@@ -1,20 +1,28 @@
 import { NavLink } from 'react-router'
 import s from './BookList.module.css'
-import { Cover } from '../../assets/img'
 import { Button } from '../UI/Button/Button'
+import { Book } from '../../models/Book'
 
-export const BookList = () => {
+interface BookListProps {
+	book: Book
+}
+
+export const BookList = ({ book }: BookListProps) => {
 	return (
 		<div className={s.container}>
-			<NavLink to={'/bookPage'}>
-				<img src={Cover} className={s.image} />
+			<NavLink to={`/bookPage/${book._id}`}>
+				<img
+					src={book.img.largeFingernail}
+					alt={book.title}
+					className={s.image}
+				/>
 			</NavLink>
 			<div className={s.content}>
-				<NavLink to={'/bookPage'}>
-					<p className={s.title}>Красная ягода. Черная земля. Сборник стихов</p>
+				<NavLink to={`/bookPage/${book._id}`}>
+					<p className={s.title}>{book.title}</p>
 				</NavLink>
-				<NavLink to={'/bookPage'}>
-					<p className={s.authors}>Анна Долгарева</p>
+				<NavLink to={`/bookPage/${book._id}`}>
+					<p className={s.authors}>{book.authors}</p>
 				</NavLink>
 			</div>
 			<Button className={s.button}>Хочу прочитать</Button>
