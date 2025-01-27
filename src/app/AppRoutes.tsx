@@ -12,7 +12,7 @@ export const AppRoutes = () => {
 				<Route path='/' element={<LoginPage />} />
 				<Route path='/registration' element={<RegistrationPage />} />
 				<Route path='/booksPage' element={<BooksPage />} />
-				<Route path='/bookPage' element={<BookPage />} />
+				<Route path='/bookPage/:id' element={<BookPage />} />
 				<Route path='/userPage' element={<UserPage />} />
 			</Routes>
 		</>

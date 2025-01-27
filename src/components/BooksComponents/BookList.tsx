@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router'
 import s from './BookList.module.css'
 import { Button } from '../UI/Button/Button'
-import { Book } from '../../models/Book'
+import { Book } from '../../models/Books'
 import coverImageBook from '../../assets/img/coverIsMissing.svg'
 
 interface BookListProps {
@@ -13,7 +13,7 @@ export const BookList = ({ book }: BookListProps) => {
 		<div className={s.container}>
 			<NavLink to={`/bookPage/${book._id}`}>
 				<img
-					src={book.img.largeFingernail}
+					src={book.img?.largeFingernail}
 					alt={book.title}
 					className={s.image}
 					onError={({ currentTarget }) => {

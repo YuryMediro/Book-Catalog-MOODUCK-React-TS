@@ -1,19 +1,12 @@
 import s from './BookFullInfo.module.css'
+import { BookSmallInfoProps } from './BookSmallInfo'
 
-export const BookFullInfo = () => {
+export const BookFullInfo = ({ book }: BookSmallInfoProps) => {
 	return (
 		<section className={s.wrapper}>
 			<p className={s.sectionTitle}>О книге</p>
 			<p className={s.description}>
-				Анна Долгарева — поэтесса, военкор и журналист, победитель множества
-				литературных конкурсов и самый молодой лауреат Григорьевской премии.
-				Поэзия Анны Долгаревой поднимает вечные вопросы бытия и отвечает на них
-				языком поколения, рано повзрослевшего в 1990-е, пережившего распад
-				большой страны как личную драму, любившего и терявшего любовь в 2000-е и
-				сейчас взвалившего на свои плечи ответственность за судьбу России. Стихи
-				Анны — пронзительные, бескомпромиссные, нервные — написаны на разрыв
-				души, с глубокой болью и любовью к Родине, Богу, людям, хрупкому миру
-				вокруг нас.
+				{book.description || 'Описание отсутствует'}
 			</p>
 
 			<div className={s.details}>
@@ -22,37 +15,65 @@ export const BookFullInfo = () => {
 					<div className={s.gap}>
 						<div className={s.detail}>
 							<p className={s.detailLabel}>Жанр</p>
-							<p className={s.detailValue}>Поэзия</p>
+							<p className={s.detailValue}>
+								{book.genres?.length ? (
+									book.genres.join(', ') //eсли переводчики есть, объединяет их в строку, разделяя запятыми
+								) : (
+									<div> — </div>
+								)}
+							</p>
 						</div>
 						<div className={s.detail}>
 							<p className={s.detailLabel}>Издательство</p>
-							<p className={s.detailValue}>АСТ</p>
+							<p className={s.detailValue}>
+								{book.publisher || 'Издательство отсутствует'}
+							</p>
 						</div>
 						<div className={s.detail}>
 							<p className={s.detailLabel}>Серия</p>
-							<p className={s.detailValue}>Мысли о Родине</p>
+							<p className={s.detailValue}>
+								{book.bookSeries || 'Серия отсутствует'}
+							</p>
 						</div>
 						<div className={s.detail}>
 							<p className={s.detailLabel}>Переплет</p>
-							<p className={s.detailValue}>Твердый</p>
+							<p className={s.detailValue}>
+								{book.bookBinding || 'Переплет отсутствует'}
+							</p>
 						</div>
 					</div>
 					<div className={s.gap}>
 						<div className={s.detail}>
 							<p className={s.detailLabel}>Художник</p>
-							<p className={s.detailValue}>Мельникова Елена</p>
+							<p className={s.detailValue}>
+								{book.painters?.length ? (
+									book.painters.join(', ') //eсли переводчики есть, объединяет их в строку, разделяя запятыми
+								) : (
+									<div> — </div>
+								)}
+							</p>
 						</div>
 						<div className={s.detail}>
 							<p className={s.detailLabel}>Переводчик</p>
-							<p className={s.detailValue}>Юсим Марк</p>
+							<p className={s.detailValue}>
+								{book.translaters?.length ? (
+									book.translaters.join(', ') //eсли переводчики есть, объединяет их в строку, разделяя запятыми
+								) : (
+									<div> — </div>
+								)}
+							</p>
 						</div>
 						<div className={s.detail}>
 							<p className={s.detailLabel}>Год издания</p>
-							<p className={s.detailValue}>2023</p>
+							<p className={s.detailValue}>
+								{book.publishedDate || 'Год издания отсутствует'}
+							</p>
 						</div>
 						<div className={s.detail}>
 							<p className={s.detailLabel}>Количество страниц</p>
-							<p className={s.detailValue}>224</p>
+							<p className={s.detailValue}>
+								{book.pageCount || 'Количество страниц отсутствует'}
+							</p>
 						</div>
 					</div>
 				</div>
