@@ -8,6 +8,7 @@ import { Preloader } from '../../components/UI/Preloader/Preloader'
 import { useBooks } from '../../hooks/useBooks'
 import { useBooksHooks } from '../../shared/apiHooks/apiHooksBooks'
 import s from './BooksPage.module.css'
+import { ScrollButton } from '../../components/UI/ScrollButton/ScrollButton'
 
 export const BooksPage = () => {
 	const [page, setPage] = useState<number>(1)
@@ -19,6 +20,7 @@ export const BooksPage = () => {
 	return (
 		<div className={s.wrapper}>
 			<Layout>
+				<ScrollButton/>
 				<div className={s.layout}>
 					<div className={s.filter}>
 						<FilterContainer setColum={handleOnClickView} />

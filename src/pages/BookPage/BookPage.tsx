@@ -11,6 +11,7 @@ import { ModalWriteComment } from '../../components/UI/modal/ModalWriteComment/M
 import { useReadBook } from '../../shared/apiHooks/apiHooksReadBook'
 import { Preloader } from '../../components/UI/Preloader/Preloader'
 import { useParams } from 'react-router'
+import { ScrollButton } from '../../components/UI/ScrollButton/ScrollButton'
 
 export const BookPage = () => {
 	const { id } = useParams<{ id: string }>() // Получаем id книги из URL
@@ -26,6 +27,7 @@ export const BookPage = () => {
 	return (
 		<div className={s.wrapper}>
 			<Layout>
+				<ScrollButton />
 				<div className={s.main}>
 					<div className={s.section}>
 						<p className={s.sectionTitleBook}>

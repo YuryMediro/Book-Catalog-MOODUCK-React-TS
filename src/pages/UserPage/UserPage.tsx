@@ -2,6 +2,7 @@ import { BookElement } from '../../components/BooksComponents/BookElement'
 import { Layout } from '../../components/Layout/Layout'
 import { Comments } from '../../components/UI/Comments/Comments'
 import { Line } from '../../components/UI/Line/Line'
+import { ScrollButton } from '../../components/UI/ScrollButton/ScrollButton'
 import { UserSettings } from '../../components/UserComponents/UserSettings'
 import s from './UserPage.module.css'
 
@@ -9,6 +10,7 @@ export const UserPage = () => {
 	return (
 		<div className={s.wrapper}>
 			<Layout>
+				<ScrollButton />
 				<div className={s.main}>
 					<div className={s.section}>
 						<p className={s.sectionTitle}>Личные данные</p>
