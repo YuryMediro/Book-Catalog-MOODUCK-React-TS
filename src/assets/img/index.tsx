@@ -22,7 +22,8 @@ import Cover from './Cover.png'
 import galka from './galka.svg'
 import toggleButtonToList from './toggleButtonToList.svg'
 import toggleButtonToTiles from './toggleButtonToTiles.svg'
-
+import leftArrow from './leftArrow.svg'
+import rightArrow from './rightArrow.svg'
 export {
 	email,
 	lock,
@@ -48,4 +49,6 @@ export {
 	galka,
 	toggleButtonToList,
 	toggleButtonToTiles,
+	leftArrow,
+	rightArrow,
 }

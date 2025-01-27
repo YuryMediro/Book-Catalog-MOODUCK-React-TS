@@ -13,3 +13,8 @@ export interface Book {
 	pageCount: number
 	img: Images
 }
+
+export type TBooks = {
+	books: Array<Book>
+	totalPages: number
+}

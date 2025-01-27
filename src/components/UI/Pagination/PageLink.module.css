@@ -1,0 +1,46 @@
+/* PageLink.module.css */
+.link {
+  position: relative;
+  display: inline-flex;
+  border: 2px solid var(--mooduck-black);
+  border-radius: 4px;
+  background-color: var(--mooduck-white);
+  padding: 10px;
+  color: var(--mooduck-black);
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: all ease-in;
+}
+
+.link:first-child {
+  border-radius: 4px;
+  background-color: #160F29;
+  padding: 15px 12px;
+  position: relative;
+  top: 4px;
+}
+
+.link:last-child {
+  border-radius: 4px;
+  background-color: #160F29;
+  padding: 15px 12px;
+  position: relative;
+  top: 4px;
+}
+
+.link:hover,
+.link:focus {
+  background-color: var(--mooduck-black);
+  color: var(--mooduck-white);
+}
+
+.link.active {
+  background-color: var(--mooduck-black);
+  color: var(--mooduck-white);
+}
+
+.link.disabled {
+  pointer-events: none;
+  color: #6c757d;
+}

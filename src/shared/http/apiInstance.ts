@@ -1,12 +1,19 @@
 import axios, { AxiosInstance } from 'axios'
 
 const BASE_URL = 'http://localhost:3000/api'
+const BASE_URL_AUTH = 'http://localhost:3000/api/auth'
 
-class APiError extends Error {
-	constructor(public response: Response) {
-		super('APiError:' + response.status)
-	}
+export interface AuthResponse {
+	accessToken: string
+	refreshToken: string
+	user: any
 }
+
+// class APiError extends Error {
+// 	constructor(public response: Response) {
+// 		super('APiError:' + response.status)
+// 	}
+// }
 
 // Создаем инстанс Axios
 export const api: AxiosInstance = axios.create({
@@ -38,10 +45,25 @@ api.interceptors.response.use(
 	config => {
 		return config
 	},
-	error => {
-		if (error.response) {
-			throw new APiError(error.response)
+	async error => {
+		const originalRequest = error.config
+		if (
+			error.response.status == 401 &&
+			error.config &&
+			!error.config._isRetry
+		) {
+			originalRequest._isRetry = true
+			try {
+				const response = await axios.get<AuthResponse>(
+					`${BASE_URL_AUTH}/refresh`,
+					{ withCredentials: true }
+				)
+				localStorage.setItem('token', response.data.accessToken)
+				return api.request(originalRequest)
+			} catch (e) {
+				console.log('Не авторизован')
+			}
 		}
-		return Promise.reject(error)
+		throw error
 	}
 )

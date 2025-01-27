@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
-import { Book } from '../../models/Book'
+import { TBooks } from '../../models/Book'
 import { apiGet } from '../api/apiService'
 
 // хук для получения всех книг
-export const useBooksHooks = () => {
-	const { data, error, isLoading } = useQuery<Book[]>({
-		queryKey: ['books'],
-		queryFn: () => apiGet<Book[]>('/books'),
+export const useBooksHooks = (page: number) => {
+	const { data, error, isLoading } = useQuery<TBooks>({
+		queryKey: ['books', page],
+		queryFn: () => apiGet<TBooks>(`/books?page=${page}&limit=16`),
 	})
 	return { data, error, isLoading }
 }

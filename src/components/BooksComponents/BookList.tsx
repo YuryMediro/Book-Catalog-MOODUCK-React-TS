@@ -2,6 +2,7 @@ import { NavLink } from 'react-router'
 import s from './BookList.module.css'
 import { Button } from '../UI/Button/Button'
 import { Book } from '../../models/Book'
+import coverImageBook from '../../assets/img/coverIsMissing.svg'
 
 interface BookListProps {
 	book: Book
@@ -15,6 +16,10 @@ export const BookList = ({ book }: BookListProps) => {
 					src={book.img.largeFingernail}
 					alt={book.title}
 					className={s.image}
+					onError={({ currentTarget }) => {
+						currentTarget.onerror = null
+						currentTarget.src = coverImageBook
+					}}
 				/>
 			</NavLink>
 			<div className={s.content}>

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { BookColum } from '../../components/BooksComponents/BookColum'
 import { BookList } from '../../components/BooksComponents/BookList'
 import { FilterContainer } from '../../components/Filter/FilterContainer/FilterContainer'
@@ -9,16 +10,12 @@ import { useBooksHooks } from '../../shared/apiHooks/apiHooksBooks'
 import s from './BooksPage.module.css'
 
 export const BooksPage = () => {
+	const [page, setPage] = useState<number>(1)
 	const { colum, handleOnClickView } = useBooks({ initialColum: false })
-	const { data: books, isLoading, error } = useBooksHooks()
+	const { data, isLoading, error } = useBooksHooks(page)
 
-	if (isLoading)
-		return (
-			<div className={s.preloader}>
-				<Preloader />
-			</div>
-		)
-	if (error) return <p>Ошибка загрузки данных: {error.message}</p>
+	const totalPages = data?.totalPages || 1
+
 	return (
 		<div className={s.wrapper}>
 			<Layout>
@@ -27,18 +24,34 @@ export const BooksPage = () => {
 						<FilterContainer setColum={handleOnClickView} />
 					</div>
 					<div className={s.pagination}>
-						{colum ? (
+						{isLoading ? (
+							<div className={s.preloader}>
+								<Preloader />
+							</div>
+						) : error ? (
+							<div className={s.booksError}>
+								<p className={s.errorTitle}>
+									Ошибка загрузки данных: {error.message}
+								</p>
+							</div>
+						) : colum ? (
 							<div className={s.bookColum}>
-								<BookColum />
+								{data?.books?.map(book => (
+									<BookColum key={book._id} book={book} />
+								))}
 							</div>
 						) : (
 							<div className={s.booksList}>
-								{books?.map(book => (
+								{data?.books?.map(book => (
 									<BookList key={book._id} book={book} />
 								))}
 							</div>
 						)}
-						<Pagination></Pagination>
+						<Pagination
+							totalPages={totalPages}
+							currentPage={page}
+							setPage={setPage}
+						></Pagination>
 					</div>
 				</div>
 			</Layout>
