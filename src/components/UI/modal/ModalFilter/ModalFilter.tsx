@@ -1,9 +1,9 @@
 import { ReactSVG } from 'react-svg'
-import { CheckBox } from '../../CheckBox/CheckBox'
 import { Modal } from '../Modal'
 import s from './ModalFilter.module.css'
-import { search } from '../../../../assets/img'
-import { Button } from '../../Button/Button'
+import { search } from 'assets/img'
+import { Button } from '@components/UI/Button/Button'
+import { CheckBox } from '@components/UI/CheckBox/CheckBox'
 
 interface ModalFilterProps {
 	visible: boolean

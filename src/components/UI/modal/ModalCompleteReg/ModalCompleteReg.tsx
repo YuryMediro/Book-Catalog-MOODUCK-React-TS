@@ -1,9 +1,9 @@
 import { ReactSVG } from 'react-svg'
-import { Button } from '../../Button/Button'
 import { Modal } from '../Modal'
 import s from './ModalCompleteReg.module.css'
 import { useNavigate } from 'react-router'
-import { message } from '../../../../assets/img'
+import { message } from 'assets/img'
+import { Button } from '@components/UI/Button/Button'
 
 interface ModalCompleteRegProps {
 	visible: boolean

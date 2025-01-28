@@ -1,17 +1,16 @@
 import { ReactSVG } from 'react-svg'
 import { Modal } from '../Modal'
 import s from './ModalNewPassword.module.css'
-import { eye } from '../../../../assets/img'
+import { eye } from 'assets/img'
 import clsx from 'clsx'
-import { Button } from '../../Button/Button'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { validateNewPasswordSchema } from '../../../../utils/validate/validateNewPasswordSchema'
-import {
-	useConfirmPasswordVisible,
-	usePasswordVisible,
-} from '../../../../hooks'
-import { formNewPasswordValues } from '../../../../utils/types/formNewPasswordValues'
+import { Button } from '@components/UI/Button/Button'
+import { useConfirmPasswordVisible } from '@hooks/useConfirmPasswordVisible'
+import { usePasswordVisible } from '@hooks/usePasswordVisible'
+import { formNewPasswordValues } from '@utils/types/formNewPasswordValues'
+import { validateNewPasswordSchema } from '@utils/validate/validateNewPasswordSchema'
+
 
 interface ModalNewPasswordProps {
 	visible: boolean

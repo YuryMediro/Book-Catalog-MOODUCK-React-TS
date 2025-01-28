@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { apiGet } from '../api/apiService'
-import { readBook } from '../../models/readBook'
+import { readBook } from 'models/readBook'
+import { apiGet } from 'shared/api/apiService'
 
 // хук для получения всех книг
 export const useReadBook = (bookId: string) => {

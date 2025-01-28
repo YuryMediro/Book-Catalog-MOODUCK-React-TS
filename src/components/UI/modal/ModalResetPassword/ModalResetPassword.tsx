@@ -1,17 +1,16 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Button } from '../../Button/Button'
 import { Modal } from '../Modal'
 import s from './ModalResetPassword.module.css'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { ReactSVG } from 'react-svg'
-import { validateResetPasswordSchema } from '../../../../utils/validate/validateResetPassword'
-import { code, eye, lock } from '../../../../assets/img'
+import { code, eye, lock } from 'assets/img'
 import clsx from 'clsx'
-import {
-	useConfirmPasswordVisible,
-	usePasswordVisible,
-} from '../../../../hooks'
-import { formResetPasswordValues } from '../../../../utils/types/formResetPasswordValues'
+import { Button } from '@components/UI/Button/Button'
+import { useConfirmPasswordVisible } from '@hooks/useConfirmPasswordVisible'
+import { usePasswordVisible } from '@hooks/usePasswordVisible'
+import { formResetPasswordValues } from '@utils/types/formResetPasswordValues'
+import { validateResetPasswordSchema } from '@utils/validate/validateResetPassword'
+
 
 interface ModalResetPasswordProps {
 	visible: boolean

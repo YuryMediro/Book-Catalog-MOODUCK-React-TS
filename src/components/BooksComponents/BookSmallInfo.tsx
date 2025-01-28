@@ -1,7 +1,7 @@
+import { readBook } from 'models/readBook'
 import s from './BookSmallInfo.module.css'
-import { Button } from '../UI/Button/Button'
-import coverImageBook from '../../assets/img/coverIsMissing.svg'
-import { readBook } from '../../models/readBook'
+import coverImageBook from 'assets/img/coverIsMissing.svg'
+import { Button } from '@components/UI/Button/Button'
 
 export interface BookSmallInfoProps {
 	book: readBook

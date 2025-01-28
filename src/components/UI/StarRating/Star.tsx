@@ -1,5 +1,5 @@
 import { ReactSVG } from 'react-svg'
-import { starNotPainted, starPainted } from '../../../assets/img'
+import { starNotPainted, starPainted } from 'assets/img'
 
 interface StarProps {
 	star: boolean

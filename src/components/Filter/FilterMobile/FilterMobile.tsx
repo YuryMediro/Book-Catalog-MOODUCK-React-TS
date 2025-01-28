@@ -1,10 +1,10 @@
 import { ReactSVG } from 'react-svg'
-import { Button } from '../../UI/Button/Button'
 import s from './FilterMobile.module.css'
-import { toggleButtonToList, toggleButtonToTiles } from '../../../assets/img'
-import { useFormModal } from '../../../hooks'
+import { toggleButtonToList, toggleButtonToTiles } from 'assets/img'
 import { createPortal } from 'react-dom'
-import { ModalFilter } from '../../UI/modal/ModalFilter/ModalFilter'
+import { useFormModal } from '@hooks/useFormModal'
+import { Button } from '@components/UI/Button/Button'
+import { ModalFilter } from '@components/UI/modal/ModalFilter/ModalFilter'
 
 interface FilterMobileProps {
 	setColum: (type: boolean) => void

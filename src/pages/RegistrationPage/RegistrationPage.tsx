@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router'
 import s from './RegistrationPage.module.css'
-import { LogoAndName } from '../../components/Layout/LogoAndName/LogoAndName'
-import { Button } from '../../components/UI/Button/Button'
-import { RegistrationPageForm } from '../../components/UI/Form/RegistrationPageForm/RegistrationPageForm'
+import { LogoAndName } from '@components/Layout/LogoAndName/LogoAndName'
+import { Button } from '@components/UI/Button/Button'
+import { RegistrationPageForm } from '@components/UI/Form/RegistrationPageForm/RegistrationPageForm'
 
 export const RegistrationPage = () => {
 	const mobile = window.innerWidth <= 767

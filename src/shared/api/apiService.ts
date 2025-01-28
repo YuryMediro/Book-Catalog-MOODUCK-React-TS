@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios'
-import { api } from '../http/apiInstance'
+import { api } from 'shared/http/apiInstance'
 
 //создаем интерфейс ApiResponse, который расширяет AxiosResponse и
 //добавляет типизацию для данных (data). Это позволяет нам указать, что

@@ -1,8 +1,8 @@
 import { ReactSVG } from 'react-svg'
 import s from './BookElement.module.css'
-import { coverIsMissing } from '../../assets/img'
-import { Button } from '../UI/Button/Button'
+import { coverIsMissing } from 'assets/img'
 import { NavLink } from 'react-router'
+import { Button } from '@components/UI/Button/Button'
 
 export const BookElement = () => {
 	return (

@@ -1,4 +1,4 @@
-import { Button } from '../../Button/Button'
+import { Button } from '@components/UI/Button/Button'
 import { Modal } from '../Modal'
 import s from './ModalUsernameVisible.module.css'
 

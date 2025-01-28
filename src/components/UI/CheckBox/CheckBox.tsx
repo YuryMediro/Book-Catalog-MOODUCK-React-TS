@@ -1,6 +1,6 @@
 import { ReactSVG } from 'react-svg'
 import s from './CheckBox.module.css'
-import { galka } from '../../../assets/img'
+import { galka } from 'assets/img'
 import { useState } from 'react'
 
 interface CheckBoxProps {

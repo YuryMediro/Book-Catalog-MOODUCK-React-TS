@@ -1,8 +1,8 @@
 import s from './Filter.module.css'
 import { ReactSVG } from 'react-svg'
-import { search } from '../../../assets/img'
-import { Button } from '../../UI/Button/Button'
-import { CheckBox } from '../../UI/CheckBox/CheckBox'
+import { search } from 'assets/img'
+import { CheckBox } from '@components/UI/CheckBox/CheckBox'
+import { Button } from '@components/UI/Button/Button'
 
 export const Filter = () => {
 	return (

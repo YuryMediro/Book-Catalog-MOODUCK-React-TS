@@ -1,20 +1,17 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Button } from '../../Button/Button'
 import s from './RegistrationPageForm.module.css'
 import { ReactSVG } from 'react-svg'
-// import { useDispatch } from 'react-redux'
-// import { AppDispatch } from '../../../Redux/Reducers/redux-store'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { ModalCompleteReg } from '../../modal/ModalCompleteReg/ModalCompleteReg'
-import { email, eye, lock, user } from '../../../../assets/img'
-import { validateRegSchema } from '../../../../utils/validate/validadeRegSchema'
+import { email, eye, lock, user } from 'assets/img'
 import clsx from 'clsx'
-import {
-	useConfirmPasswordVisible,
-	useFormModal,
-	usePasswordVisible,
-} from '../../../../hooks'
-import { formRegValues } from '../../../../utils/types/formRegValues'
+import { Button } from '@components/UI/Button/Button'
+import { ModalCompleteReg } from '@components/UI/modal/ModalCompleteReg/ModalCompleteReg'
+import { useConfirmPasswordVisible } from '@hooks/useConfirmPasswordVisible'
+import { useFormModal } from '@hooks/useFormModal'
+import { usePasswordVisible } from '@hooks/usePasswordVisible'
+import { formRegValues } from '@utils/types/formRegValues'
+import { validateRegSchema } from '@utils/validate/validadeRegSchema'
+
 
 export const RegistrationPageForm = () => {
 	const {
@@ -26,9 +23,6 @@ export const RegistrationPageForm = () => {
 		mode: 'onBlur',
 		resolver: yupResolver(validateRegSchema),
 	})
-
-	// const useAppDispatch: () => AppDispatch = useDispatch
-	// const dispatch = useAppDispatch()
 
 	const passwordVisible = usePasswordVisible(false)
 	const confirmPasswordVisible = useConfirmPasswordVisible(false)

@@ -1,5 +1,5 @@
-import { Button } from '../../Button/Button'
-import { StarRating } from '../../StarRating/StarRating'
+import { Button } from '@components/UI/Button/Button'
+import { StarRating } from '@components/UI/StarRating/StarRating'
 import { Modal } from '../Modal'
 import s from './ModalWriteComment.module.css'
 

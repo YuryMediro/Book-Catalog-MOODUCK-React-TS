@@ -1,14 +1,14 @@
+import { Button } from '@components/UI/Button/Button'
+import { ModalChangePhoto } from '@components/UI/modal/ModalChangePhoto/ModalChangePhoto'
+import { ModalCheckPassword } from '@components/UI/modal/ModalCheckPassword/ModalCheckPassword'
+import { ModalEmailVisible } from '@components/UI/modal/ModalEmailVisible/ModalEmailVisible'
+import { ModalLogout } from '@components/UI/modal/ModalLogout/ModalLogout'
+import { ModalNewPassword } from '@components/UI/modal/ModalNewPassword/ModalNewPassword'
+import { ModalUsernameVisible } from '@components/UI/modal/ModalUsernameVisible/ModalUsernameVisible'
+import { useFormModal } from '@hooks/useFormModal'
 import s from './UserSettings.module.css'
-import { barcode, goose } from '../../assets/img'
-import { Button } from '../UI/Button/Button'
-import { ModalUsernameVisible } from '../UI/modal/ModalUsernameVisible/ModalUsernameVisible'
-import { ModalEmailVisible } from '../UI/modal/ModalEmailVisible/ModalEmailVisible'
-import { ModalCheckPassword } from '../UI/modal/ModalCheckPassword/ModalCheckPassword'
-import { ModalNewPassword } from '../UI/modal/ModalNewPassword/ModalNewPassword'
+import { barcode, goose } from 'assets/img'
 import { createPortal } from 'react-dom'
-import { ModalChangePhoto } from '../UI/modal/ModalChangePhoto/ModalChangePhoto'
-import { ModalLogout } from '../UI/modal/ModalLogout/ModalLogout'
-import { useFormModal } from '../../hooks'
 
 export const UserSettings = () => {
 	const modalUsernameVisible = useFormModal(false)

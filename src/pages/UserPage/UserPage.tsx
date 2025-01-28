@@ -1,9 +1,9 @@
-import { BookElement } from '../../components/BooksComponents/BookElement'
-import { Layout } from '../../components/Layout/Layout'
-import { Comments } from '../../components/UI/Comments/Comments'
-import { Line } from '../../components/UI/Line/Line'
-import { ScrollButton } from '../../components/UI/ScrollButton/ScrollButton'
-import { UserSettings } from '../../components/UserComponents/UserSettings'
+import { BookElement } from '@components/BooksComponents/BookElement'
+import { Layout } from '@components/Layout/Layout'
+import { Comments } from '@components/UI/Comments/Comments'
+import { Line } from '@components/UI/Line/Line'
+import { ScrollButton } from '@components/UI/ScrollButton/ScrollButton'
+import { UserSettings } from '@components/UserComponents/UserSettings'
 import s from './UserPage.module.css'
 
 export const UserPage = () => {

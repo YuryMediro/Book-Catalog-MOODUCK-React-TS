@@ -1,8 +1,8 @@
 import { ReactSVG } from 'react-svg'
-import { Button } from '../../Button/Button'
-import { Modal } from '../Modal'
 import s from './ModalChangePhoto.module.css'
-import { imageBeforeHover } from '../../../../assets/img'
+import { imageBeforeHover } from 'assets/img'
+import { Button } from '@components/UI/Button/Button'
+import { Modal } from '../Modal'
 
 interface ModalChangePhotoProps {
 	visible: boolean

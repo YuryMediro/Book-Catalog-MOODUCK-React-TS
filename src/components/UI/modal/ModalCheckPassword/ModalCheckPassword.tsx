@@ -1,14 +1,14 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Button } from '../../Button/Button'
 import { Modal } from '../Modal'
 import s from './ModalCheckPassword.module.css'
 import { yupResolver } from '@hookform/resolvers/yup'
 import clsx from 'clsx'
 import { ReactSVG } from 'react-svg'
-import { eye } from '../../../../assets/img'
-import { validateCheckPasswordSchema } from '../../../../utils/validate/validateCheckPasswordSchema'
-import { usePasswordVisible } from '../../../../hooks'
-import { formCheckPasswordValues } from '../../../../utils/types/formCheckPasswordValues'
+import { eye } from 'assets/img'
+import { Button } from '@components/UI/Button/Button'
+import { usePasswordVisible } from '@hooks/usePasswordVisible'
+import { formCheckPasswordValues } from '@utils/types/formCheckPasswordValues'
+import { validateCheckPasswordSchema } from '@utils/validate/validateCheckPasswordSchema'
 
 interface ModalCheckPasswordProps {
 	visible: boolean

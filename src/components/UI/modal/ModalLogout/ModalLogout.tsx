@@ -1,9 +1,9 @@
 import { ReactSVG } from 'react-svg'
 import { Modal } from '../Modal'
-import { duckFootprints } from '../../../../assets/img'
+import { duckFootprints } from 'assets/img'
 import s from './ModalLogout.module.css'
-import { Button } from '../../Button/Button'
 import { useNavigate } from 'react-router'
+import { Button } from '@components/UI/Button/Button'
 
 interface ModalLogoutProps {
 	visible: boolean

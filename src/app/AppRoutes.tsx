@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router'
-import { LoginPage } from '../pages/LoginPage/LoginPage'
-import { RegistrationPage } from '../pages/RegistrationPage/RegistrationPage'
-import { UserPage } from '../pages/UserPage/UserPage'
-import { BookPage } from '../pages/BookPage/BookPage'
-import { BooksPage } from '../pages/BooksPage/BooksPage'
+import { LoginPage } from 'pages/LoginPage/LoginPage'
+import { RegistrationPage } from 'pages/RegistrationPage/RegistrationPage'
+import { BooksPage } from 'pages/BooksPage/BooksPage'
+import { BookPage } from 'pages/BookPage/BookPage'
+import { UserPage } from 'pages/UserPage/UserPage'
 
 export const AppRoutes = () => {
 	return (

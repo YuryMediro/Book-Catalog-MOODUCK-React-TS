@@ -1,4 +1,4 @@
-import logotype from '../../../../public/assets/img/logotype.svg'
+import logotype from 'assets/img/logotype.svg'
 import s from './LogoAndName.module.css'
 
 interface LogoAndNameProps {

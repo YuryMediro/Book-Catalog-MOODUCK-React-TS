@@ -1,19 +1,13 @@
 import axios, { AxiosInstance } from 'axios'
 
-const BASE_URL = 'http://localhost:3000/api'
-const BASE_URL_AUTH = 'http://localhost:3000/api/auth'
+const BASE_URL = import.meta.env.VITE_API_BASE_URL
+const BASE_URL_AUTH = import.meta.env.VITE_API_AUTH_URL
 
 export interface AuthResponse {
 	accessToken: string
 	refreshToken: string
 	user: any
 }
-
-// class APiError extends Error {
-// 	constructor(public response: Response) {
-// 		super('APiError:' + response.status)
-// 	}
-// }
 
 // Создаем инстанс Axios
 export const api: AxiosInstance = axios.create({

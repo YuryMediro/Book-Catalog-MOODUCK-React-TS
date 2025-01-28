@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react'
 import s from './Pagination.module.css'
 import { ReactSVG } from 'react-svg'
-import { leftArrow, rightArrow } from '../../../assets/img'
+import { leftArrow, rightArrow } from '@assets/img'
 
 type PaginationProps = {
 	setPage: Dispatch<SetStateAction<number>>

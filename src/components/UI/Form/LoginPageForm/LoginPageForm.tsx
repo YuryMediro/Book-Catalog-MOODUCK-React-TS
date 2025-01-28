@@ -1,19 +1,19 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Button } from '../../Button/Button'
 import s from './LoginPageForm.module.css'
 import { ReactSVG } from 'react-svg'
-// import { useDispatch } from 'react-redux'
-// import { AppDispatch } from '../../../Redux/Reducers/redux-store'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { ModalForgetPassword } from '../../modal/ModalForgetPassword/ModalForgetPassword'
-import { ModalResetPassword } from '../../modal/ModalResetPassword/ModalResetPassword'
 import { createPortal } from 'react-dom'
 import { NavLink } from 'react-router'
-import { validateLoginSchema } from '../../../../utils/validate/validateLoginSchema'
-import { email, eye, lock } from '../../../../assets/img'
+import { email, eye, lock } from 'assets/img'
 import clsx from 'clsx'
-import { useFormModal, usePasswordVisible } from '../../../../hooks'
-import { formLoginValues } from '../../../../utils/types/formLoginValues'
+import { formLoginValues } from '@utils/types/formLoginValues'
+import { validateLoginSchema } from '@utils/validate/validateLoginSchema'
+import { usePasswordVisible } from '@hooks/usePasswordVisible'
+import { useFormModal } from '@hooks/useFormModal'
+import { Button } from '@components/UI/Button/Button'
+import { ModalForgetPassword } from '@components/UI/modal/ModalForgetPassword/ModalForgetPassword'
+import { ModalResetPassword } from '@components/UI/modal/ModalResetPassword/ModalResetPassword'
+
 export const LoginPageForm = () => {
 	const {
 		register,
@@ -24,9 +24,6 @@ export const LoginPageForm = () => {
 		mode: 'onBlur',
 		resolver: yupResolver(validateLoginSchema),
 	})
-
-	// const useAppDispatch: () => AppDispatch = useDispatch
-	// const dispatch = useAppDispatch()
 
 	const passwordVisible = usePasswordVisible(false)
 	const modalForgetPassword = useFormModal(false)

@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { StarRating } from '../../StarRating/StarRating'
-import { TextBlock } from '../../TextBlock/TextBlock'
 import s from './Comment.module.css'
 import { ReactSVG } from 'react-svg'
-import { dislike, like } from '../../../../assets/img'
+import { dislike, like } from 'assets/img'
+import { TextBlock } from '@components/UI/TextBlock/TextBlock'
+import { StarRating } from '@components/UI/StarRating/StarRating'
 
 interface CommentProps {
 	rating: number

@@ -1,5 +1,5 @@
-import { Filter } from '../Filter/Filter'
-import { FilterMobile } from '../FilterMobile/FilterMobile'
+import { Filter } from "../Filter/Filter"
+import { FilterMobile } from "../FilterMobile/FilterMobile"
 
 interface FilterContainerProps {
 	setColum: (type: boolean) => void

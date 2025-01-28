@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import { BookColum } from '../../components/BooksComponents/BookColum'
-import { BookList } from '../../components/BooksComponents/BookList'
-import { FilterContainer } from '../../components/Filter/FilterContainer/FilterContainer'
-import { Layout } from '../../components/Layout/Layout'
-import { Pagination } from '../../components/UI/Pagination/Pagination'
-import { Preloader } from '../../components/UI/Preloader/Preloader'
-import { useBooks } from '../../hooks/useBooks'
-import { useBooksHooks } from '../../shared/apiHooks/apiHooksBooks'
+import { FilterContainer } from '@components/Filter/FilterContainer/FilterContainer'
+import { Layout } from '@components/Layout/Layout'
+import { Pagination } from '@components/UI/Pagination/Pagination'
 import s from './BooksPage.module.css'
-import { ScrollButton } from '../../components/UI/ScrollButton/ScrollButton'
+import { Preloader } from '@components/UI/Preloader/Preloader'
+import { BookColum } from '@components/BooksComponents/BookColum'
+import { BookList } from '@components/BooksComponents/BookList'
+import { useBooks } from '@hooks/useBooks'
+import { ScrollButton } from '@components/UI/ScrollButton/ScrollButton'
+import { useBooksHooks } from 'shared/apiHooks/apiHooksBooks'
 
 export const BooksPage = () => {
 	const [page, setPage] = useState<number>(1)
@@ -20,7 +20,7 @@ export const BooksPage = () => {
 	return (
 		<div className={s.wrapper}>
 			<Layout>
-				<ScrollButton/>
+				<ScrollButton />
 				<div className={s.layout}>
 					<div className={s.filter}>
 						<FilterContainer setColum={handleOnClickView} />

@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router'
 import s from './BookColum.module.css'
-import { Line } from '../UI/Line/Line'
-import { Button } from '../UI/Button/Button'
-import { Book } from '../../models/Books'
-import coverImageBook from '../../assets/img/coverIsMissing.svg'
+import coverImageBook from 'assets/img/coverIsMissing.svg'
+import { Book } from 'models/Books'
+import { Button } from '@components/UI/Button/Button'
+import { Line } from '@components/UI/Line/Line'
 
 interface BookListProps {
 	book: Book

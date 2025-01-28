@@ -1,9 +1,9 @@
 import s from './Header.module.css'
-import { LogoAndName } from '../LogoAndName/LogoAndName'
 import { NavLink } from 'react-router'
 import { ReactSVG } from 'react-svg'
-import { search, unknownAvatar } from '../../../assets/img'
-import { Line } from '../../UI/Line/Line'
+import { Line } from '@components/UI/Line/Line'
+import { search, unknownAvatar } from '@assets/img'
+import { LogoAndName } from '../LogoAndName/LogoAndName'
 
 export const Header = () => {
 	const mobile = window.innerWidth <= 767
