@@ -11,7 +11,10 @@ import { useFormModal } from '@hooks/useFormModal'
 import { usePasswordVisible } from '@hooks/usePasswordVisible'
 import { formRegValues } from '@utils/types/formRegValues'
 import { validateRegSchema } from '@utils/validate/validadeRegSchema'
-
+import {
+	RegisterProps,
+	useRegisterHooks,
+} from 'shared/apiHooks/apiHooksRegister'
 
 export const RegistrationPageForm = () => {
 	const {
@@ -24,15 +27,26 @@ export const RegistrationPageForm = () => {
 		resolver: yupResolver(validateRegSchema),
 	})
 
+	const { mutate, status, error } = useRegisterHooks()
+
 	const passwordVisible = usePasswordVisible(false)
 	const confirmPasswordVisible = useConfirmPasswordVisible(false)
 	const completeReg = useFormModal(false)
 
-	const onSubmit: SubmitHandler<formRegValues> = data => {
-		console.log({ data })
-		reset()
-		// Здесь можно добавить логику для отправки данных на сервер
+	const onSubmit: SubmitHandler<RegisterProps> = data => {
+		mutate(data, {
+			onSuccess: () => {
+				reset(), completeReg.handleOnClick() // Открываем модальное окно после успешной регистрации
+			},
+			onError: () => {
+				reset()
+			},
+		})
 	}
+
+	// Проверка, в процессе ли загрузка
+	const isLoading = status === 'pending'
+
 	return (
 		<section className={s.registration_form_container}>
 			<h1 className={s.registration_title}>РЕГИСТРАЦИЯ</h1>
@@ -115,15 +129,20 @@ export const RegistrationPageForm = () => {
 						<p className={s.error_message}>{errors.confirmPassword.message}</p>
 					)}
 				</div>
+				{/* Вывод ошибки при неудачной регистрации */}
+				{error && (
+					<p className={s.errorMessage}>
+						{error.message || 'Ошибка регистрации. Попробуйте снова.'}
+					</p>
+				)}
 
 				<div className={s.button_container}>
 					<Button
 						className={s.submit_button}
 						type='submit'
-						disabled={!isValid}
-						onClick={completeReg.handleOnClick}
+						disabled={!isValid || isLoading}
 					>
-						Зарегистрироваться
+						{isLoading ? 'Регистрация...' : 'Зарегистрироваться'}
 					</Button>
 				</div>
 				<ModalCompleteReg

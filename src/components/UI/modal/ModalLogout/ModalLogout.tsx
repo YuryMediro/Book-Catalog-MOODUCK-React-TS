@@ -2,8 +2,8 @@ import { ReactSVG } from 'react-svg'
 import { Modal } from '../Modal'
 import { duckFootprints } from 'assets/img'
 import s from './ModalLogout.module.css'
-import { useNavigate } from 'react-router'
 import { Button } from '@components/UI/Button/Button'
+import { useLogoutHooks } from 'shared/apiHooks/apiHooksLogout'
 
 interface ModalLogoutProps {
 	visible: boolean
@@ -11,13 +11,16 @@ interface ModalLogoutProps {
 }
 
 export const ModalLogout = ({ visible, setVisible }: ModalLogoutProps) => {
-	const handleOnClick = () => {
+	const { mutate, status } = useLogoutHooks()
+
+	const onLogout = async () => {
+		await mutate()
 		setVisible(false)
 	}
-	const navigate = useNavigate()
-	const handleOnClickNavigate = () => {
-		navigate('/')
-	}
+
+	// Проверка, в процессе ли загрузка
+	const isLoading = status === 'pending'
+
 	return (
 		<Modal
 			title={'Вы уверены, что хотите выйти?'}
@@ -32,11 +35,16 @@ export const ModalLogout = ({ visible, setVisible }: ModalLogoutProps) => {
 				<Button
 					className={s.button}
 					type='submit'
-					onClick={handleOnClickNavigate}
+					onClick={onLogout}
+					disabled={isLoading}
 				>
-					ДА, выйти
+					{isLoading ? 'Выход...' : 'ДА, выйти'}
 				</Button>
-				<Button className={s.button} type='button' onClick={handleOnClick}>
+				<Button
+					className={s.button}
+					type='button'
+					onClick={() => setVisible(false)}
+				>
 					Нет, остаться
 				</Button>
 			</div>

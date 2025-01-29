@@ -5,9 +5,10 @@ import { useState } from 'react'
 
 interface CheckBoxProps {
 	checked: boolean
+	info:string
 }
 
-export const CheckBox = ({ checked }: CheckBoxProps) => {
+export const CheckBox = ({ checked, info }: CheckBoxProps) => {
 	const [isChecked, setIsChecked] = useState(checked)
 
 	const handleClick = () => {
@@ -17,12 +18,12 @@ export const CheckBox = ({ checked }: CheckBoxProps) => {
 	return (
 		<div className={s.container}>
 			<button
-				className={`${s.button} ${isChecked ? s.checked : ''} `}
+				className={`${s.button}${isChecked ? s.checked : ''} `}
 				onClick={handleClick}
 			>
 				{isChecked && <ReactSVG src={galka} />}
 			</button>
-			<p className={s.info}>Детективы</p>
+			<p className={s.info}>{info}</p>
 		</div>
 	)
 }

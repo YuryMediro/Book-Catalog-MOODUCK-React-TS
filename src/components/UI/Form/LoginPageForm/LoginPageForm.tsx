@@ -3,7 +3,6 @@ import s from './LoginPageForm.module.css'
 import { ReactSVG } from 'react-svg'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { createPortal } from 'react-dom'
-import { NavLink } from 'react-router'
 import { email, eye, lock } from 'assets/img'
 import clsx from 'clsx'
 import { formLoginValues } from '@utils/types/formLoginValues'
@@ -13,6 +12,7 @@ import { useFormModal } from '@hooks/useFormModal'
 import { Button } from '@components/UI/Button/Button'
 import { ModalForgetPassword } from '@components/UI/modal/ModalForgetPassword/ModalForgetPassword'
 import { ModalResetPassword } from '@components/UI/modal/ModalResetPassword/ModalResetPassword'
+import { useLoginHooks } from 'shared/apiHooks/apiHooksLogin'
 
 export const LoginPageForm = () => {
 	const {
@@ -25,16 +25,25 @@ export const LoginPageForm = () => {
 		resolver: yupResolver(validateLoginSchema),
 	})
 
+	const { mutate, status, error } = useLoginHooks()
+
 	const passwordVisible = usePasswordVisible(false)
 	const modalForgetPassword = useFormModal(false)
 	const modalResetPassword = useFormModal(false)
 
-	const onSubmit: SubmitHandler<formLoginValues> = (data, event) => {
-		console.log({ data })
-		event?.preventDefault()
-		reset()
-		// Здесь можно добавить логику для отправки данных на сервер
+	const onSubmit: SubmitHandler<formLoginValues> = data => {
+		mutate(data, {
+			onSuccess: () => {
+				reset()
+			},
+			onError: () => {
+				reset()
+			},
+		})
 	}
+
+	// Проверка, в процессе ли загрузка
+	const isLoading = status === 'pending'
 
 	return (
 		<section className={s.logIn_form_container}>
@@ -101,17 +110,20 @@ export const LoginPageForm = () => {
 					/>,
 					document.body
 				)}
+				{error && (
+					<p className={s.errorMessage}>
+						{error.message || 'Ошибка авторизации. Вы не зарегистрированы.'}
+					</p>
+				)}
 				{/* для формы в форме createPortal */}
 				<div className={s.button_container}>
-					<NavLink to={'/booksPage'}>
-						<Button
-							className={s.submit_button}
-							type='submit'
-							disabled={!isValid}
-						>
-							Войти
-						</Button>
-					</NavLink>
+					<Button
+						className={s.submit_button}
+						type='submit'
+						disabled={!isValid || isLoading}
+					>
+						{isLoading ? 'Вход...' : 'Войти'}
+					</Button>
 				</div>
 			</form>
 		</section>
