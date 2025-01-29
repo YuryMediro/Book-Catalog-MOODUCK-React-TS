@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router'
 import { apiPost } from 'shared/api/apiService'
 import { AuthResponse } from 'shared/http/apiInstance'
 
-export const useLoginHooks = () => {
+export const useLoginHooks = (setServerError: (message: string) => void) => {
 	const navigate = useNavigate()
 
 	const mutation = useMutation<AuthResponse, Error, formLoginValues>({
@@ -13,11 +13,13 @@ export const useLoginHooks = () => {
 		onSuccess: data => {
 			// Сохраняем токен в localStorage
 			localStorage.setItem('token', data.accessToken)
-			
+
 			navigate('/booksPage')
 		},
-		onError: error => {
-			console.error('Ошибка авторизации:', error)
+		onError: (error: any) => {
+			if(error.response?.data?.message){
+				setServerError(error.response.data.message)
+			}
 		},
 	})
 	return mutation

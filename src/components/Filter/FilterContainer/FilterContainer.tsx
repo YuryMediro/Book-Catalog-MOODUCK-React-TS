@@ -7,25 +7,11 @@ interface FilterContainerProps {
 	// searchedGenres: IAuthorsAndGenres[]
 }
 
-export const FilterContainer = ({
-	setColum,
-	
-}: FilterContainerProps) => {
+export const FilterContainer = ({ setColum }: FilterContainerProps) => {
 	const mobile = window.innerWidth <= 1165
 	// <>
 	// 	<div className={s.desktop}><FilterMobile /></div>
 	// 	<div><Filter /></div>
 	// </>
-	return (
-		<>
-			{mobile ? (
-				<FilterMobile setColum={setColum} />
-			) : (
-				<Filter
-					// searchedGenres={searchedGenres}
-					// searchedAuthors={searchedAuthors}
-				/>
-			)}
-		</>
-	)
+	return <>{mobile ? <FilterMobile setColum={setColum} /> : <Filter />}</>
 }

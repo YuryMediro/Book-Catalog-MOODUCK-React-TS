@@ -18,7 +18,7 @@ export const CheckBox = ({ checked, info }: CheckBoxProps) => {
 	return (
 		<div className={s.container}>
 			<button
-				className={`${s.button}${isChecked ? s.checked : ''} `}
+				className={`${s.button} ${isChecked ? s.checked : ''} `}
 				onClick={handleClick}
 			>
 				{isChecked && <ReactSVG src={galka} />}

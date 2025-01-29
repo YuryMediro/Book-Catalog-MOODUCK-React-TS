@@ -9,7 +9,7 @@ export interface RegisterProps {
 	password: string
 }
 
-export const useRegisterHooks = () => {
+export const useRegisterHooks = (setServerError: (message: string) => void) => {
 	const navigate = useNavigate()
 
 	const mutation = useMutation<AuthResponse, Error, RegisterProps>({
@@ -21,8 +21,10 @@ export const useRegisterHooks = () => {
 
 			navigate('/login')
 		},
-		onError: error => {
-			console.error('Ошибка регистрации:', error)
+		onError: (error: any) => {
+			if (error.response?.data?.message) {
+				setServerError(error.response.data.message)
+			}
 		},
 	})
 	return mutation

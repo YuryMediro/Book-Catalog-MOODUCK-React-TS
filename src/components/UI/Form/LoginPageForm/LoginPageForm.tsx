@@ -13,6 +13,8 @@ import { Button } from '@components/UI/Button/Button'
 import { ModalForgetPassword } from '@components/UI/modal/ModalForgetPassword/ModalForgetPassword'
 import { ModalResetPassword } from '@components/UI/modal/ModalResetPassword/ModalResetPassword'
 import { useLoginHooks } from 'shared/apiHooks/apiHooksLogin'
+import React from 'react'
+import { ErrorMessage } from '@components/UI/Error/ErrorMessage'
 
 export const LoginPageForm = () => {
 	const {
@@ -24,8 +26,8 @@ export const LoginPageForm = () => {
 		mode: 'onBlur',
 		resolver: yupResolver(validateLoginSchema),
 	})
-
-	const { mutate, status, error } = useLoginHooks()
+	const [serverError, setServerError] = React.useState<string | null>(null)
+	const { mutate, status } = useLoginHooks(setServerError)
 
 	const passwordVisible = usePasswordVisible(false)
 	const modalForgetPassword = useFormModal(false)
@@ -110,11 +112,7 @@ export const LoginPageForm = () => {
 					/>,
 					document.body
 				)}
-				{error && (
-					<p className={s.errorMessage}>
-						{error.message || 'Ошибка авторизации. Вы не зарегистрированы.'}
-					</p>
-				)}
+
 				{/* для формы в форме createPortal */}
 				<div className={s.button_container}>
 					<Button
@@ -126,6 +124,13 @@ export const LoginPageForm = () => {
 					</Button>
 				</div>
 			</form>
+			{serverError && (
+				<ErrorMessage
+					message={serverError}
+					duration={5000}
+					onClose={() => setServerError(null)}
+				/>
+			)}
 		</section>
 	)
 }

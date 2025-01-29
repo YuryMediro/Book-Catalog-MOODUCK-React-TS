@@ -15,6 +15,8 @@ import {
 	RegisterProps,
 	useRegisterHooks,
 } from 'shared/apiHooks/apiHooksRegister'
+import React from 'react'
+import { ErrorMessage } from '@components/UI/Error/ErrorMessage'
 
 export const RegistrationPageForm = () => {
 	const {
@@ -27,7 +29,8 @@ export const RegistrationPageForm = () => {
 		resolver: yupResolver(validateRegSchema),
 	})
 
-	const { mutate, status, error } = useRegisterHooks()
+	const [serverError, setServerError] = React.useState<string | null>(null)
+	const { mutate, status } = useRegisterHooks(setServerError)
 
 	const passwordVisible = usePasswordVisible(false)
 	const confirmPasswordVisible = useConfirmPasswordVisible(false)
@@ -129,12 +132,6 @@ export const RegistrationPageForm = () => {
 						<p className={s.error_message}>{errors.confirmPassword.message}</p>
 					)}
 				</div>
-				{/* Вывод ошибки при неудачной регистрации */}
-				{error && (
-					<p className={s.errorMessage}>
-						{error.message || 'Ошибка регистрации. Попробуйте снова.'}
-					</p>
-				)}
 
 				<div className={s.button_container}>
 					<Button
@@ -150,6 +147,13 @@ export const RegistrationPageForm = () => {
 					setVisible={completeReg.handleOnClick}
 				/>
 			</form>
+			{serverError && (
+				<ErrorMessage
+					message={serverError}
+					duration={5000}
+					onClose={() => setServerError(null)}
+				/>
+			)}
 		</section>
 	)
 }
