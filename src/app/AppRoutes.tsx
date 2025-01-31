@@ -4,19 +4,20 @@ import { RegistrationPage } from 'pages/RegistrationPage/RegistrationPage'
 import { BooksPage } from 'pages/BooksPage/BooksPage'
 import { BookPage } from 'pages/BookPage/BookPage'
 import { UserPage } from 'pages/UserPage/UserPage'
+import { useUser } from 'context/UserContext'
 
 //  Компонент для защиты приватных маршрутов
 //  Перенаправляет неавторизованных пользователей на страницу входа
 const AuthRoute = () => {
-	const isAuthenticated = !!localStorage.getItem('token')
-	return isAuthenticated ? <Outlet /> : <Navigate to='/login' replace />
+	const { user, token } = useUser()
+	return user && token ? <Outlet /> : <Navigate to='/login' replace />
 }
 
 //  Компонент для защиты публичных маршрутов
 //  Перенаправляет авторизованных пользователей на главную страницу
 const GuestRoute = () => {
-	const isAuthenticated = !!localStorage.getItem('token')
-	return isAuthenticated ? <Navigate to='/booksPage' replace /> : <Outlet />
+	const { user, token } = useUser()
+	return user && token ? <Navigate to='/booksPage' replace /> : <Outlet />
 }
 
 export const AppRoutes = () => {

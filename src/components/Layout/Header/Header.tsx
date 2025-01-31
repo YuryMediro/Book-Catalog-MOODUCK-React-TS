@@ -4,11 +4,12 @@ import { ReactSVG } from 'react-svg'
 import { Line } from '@components/UI/Line/Line'
 import { search, unknownAvatar } from '@assets/img'
 import { LogoAndName } from '../LogoAndName/LogoAndName'
+import { useUser } from 'context/UserContext'
 
 export const Header = () => {
 	const mobile = window.innerWidth <= 767
-	const userId = localStorage.getItem('idUser')
-	console.log('User ID from localStorage:', userId)
+	const { user } = useUser()
+	console.log('User ID from context:', user)
 
 	return (
 		<>
@@ -19,7 +20,7 @@ export const Header = () => {
 							<LogoAndName className={s.LogoAndName} />
 						</NavLink>
 						<div className={s.mobileHeader_right}>
-							<NavLink to={'/userPage'}>
+							<NavLink to={user ? `/userPage/${user.id}` : '/login'}>
 								<ReactSVG src={unknownAvatar} />
 							</NavLink>
 						</div>
@@ -55,7 +56,7 @@ export const Header = () => {
 									<ReactSVG src={search} className={s.search_icon} />
 								</div>
 							</form>
-							<NavLink to={`/userPage/${userId}`}>
+							<NavLink to={user ? `/userPage/${user.id}` : '/login'}>
 								<ReactSVG src={unknownAvatar} />
 							</NavLink>
 						</div>
@@ -66,4 +67,3 @@ export const Header = () => {
 		</>
 	)
 }
-

@@ -1,16 +1,17 @@
 import { useMutation } from '@tanstack/react-query'
+import { useUser } from 'context/UserContext'
 import { useNavigate } from 'react-router'
 import { apiPost } from 'shared/api/apiService'
 
 export const useLogoutHooks = () => {
+	const { setUser, setToken } = useUser()
 	const navigate = useNavigate()
 
 	const mutation = useMutation({
 		mutationFn: async () => await apiPost('/auth/logout', {}),
 		onSuccess: () => {
-			// очищаем данные авторизации
-			localStorage.removeItem('token')
-			localStorage.removeItem('idUser')
+			setUser(null)
+			setToken(null)
 
 			navigate('/login')
 		},
