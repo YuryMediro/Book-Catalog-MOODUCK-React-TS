@@ -7,7 +7,7 @@ import { LogoAndName } from '../LogoAndName/LogoAndName'
 
 export const Header = () => {
 	const mobile = window.innerWidth <= 767
-	const userId = localStorage.getItem('hui')
+	const userId = localStorage.getItem('idUser')
 	console.log('User ID from localStorage:', userId)
 
 	return (
@@ -66,4 +66,4 @@ export const Header = () => {
 		</>
 	)
 }
-//<NavLink to={`/userPage/${userId}`}>
+

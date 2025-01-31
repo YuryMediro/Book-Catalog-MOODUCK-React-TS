@@ -10,7 +10,7 @@ export const useLogoutHooks = () => {
 		onSuccess: () => {
 			// очищаем данные авторизации
 			localStorage.removeItem('token')
-			localStorage.removeItem('hui')
+			localStorage.removeItem('idUser')
 
 			navigate('/login')
 		},

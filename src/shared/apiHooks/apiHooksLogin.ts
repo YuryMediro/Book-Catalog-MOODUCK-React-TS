@@ -14,8 +14,8 @@ export const useLoginHooks = (setServerError: (message: string) => void) => {
 			console.log(data)
 			// Сохраняем токен в localStorage
 			localStorage.setItem('token', data.accessToken)
-			console.log('Token saved:', data.accessToken) // Лог токена
-			localStorage.setItem('hui', data.user.id)
+			console.log('Token saved:', data.accessToken); // Лог токена
+			localStorage.setItem('idUser', data.user.id)
 			console.log('User ID saved:', data.user.id)
 			navigate('/booksPage')
 		},

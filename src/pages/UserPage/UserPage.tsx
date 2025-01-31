@@ -10,7 +10,7 @@ import { useUserData } from 'shared/apiHooks/apiGetUser'
 
 export const UserPage = () => {
 	const { id } = useParams<{ id: string }>()
-	console.log('User ID from URL params:', id) 
+	console.log('User ID from URL params:', id); 
 	const { data: user, error, isLoading } = useUserData(id!)
 
 	if (isLoading) return <div>Loader...</div>
