@@ -32,19 +32,30 @@ export const RegistrationPageForm = () => {
 	const [serverError, setServerError] = React.useState<string | null>(null)
 	const { mutate, status } = useRegisterHooks(setServerError)
 
+	console.log(status)
+
 	const passwordVisible = usePasswordVisible(false)
 	const confirmPasswordVisible = useConfirmPasswordVisible(false)
 	const completeReg = useFormModal(false)
 
+	console.log(`COMPLETE_REG >> ${completeReg.visible}`)
+
 	const onSubmit: SubmitHandler<RegisterProps> = data => {
-		mutate(data, {
-			onSuccess: () => {
-				reset(), completeReg.handleOnClick() // Открываем модальное окно после успешной регистрации
+		mutate(
+			{
+				email: data.email,
+				password: data.password,
+				username: data.username,
 			},
-			onError: () => {
-				reset()
-			},
-		})
+			{
+				onSuccess: () => {
+					reset() // Открываем модальное окно после успешной регистрации
+				},
+				onError: () => {
+					reset()
+				},
+			}
+		)
 	}
 
 	// Проверка, в процессе ли загрузка

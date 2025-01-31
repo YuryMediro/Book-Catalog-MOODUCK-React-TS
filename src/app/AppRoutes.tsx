@@ -31,11 +31,11 @@ export const AppRoutes = () => {
 			<Route element={<AuthRoute />}>
 				<Route path='/booksPage' element={<BooksPage />} />
 				<Route path='/bookPage/:id' element={<BookPage />} />
-				<Route path='/userPage' element={<UserPage />} />
+				<Route path='/userPage/:id' element={<UserPage />} />
 			</Route>
-			 {/* Дефолтные редиректы */}
-      <Route path="/" element={<Navigate to="/login" replace />} />
-      <Route path="*" element={<Navigate to="/login" replace />} />
+			{/* Дефолтные редиректы */}
+			<Route path='/' element={<Navigate to='/login' replace />} />
+			<Route path='*' element={<Navigate to='/login' replace />} />
 		</Routes>
 	)
 }

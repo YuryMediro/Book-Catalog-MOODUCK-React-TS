@@ -16,11 +16,9 @@ export const BookFullInfo = ({ book }: BookSmallInfoProps) => {
 						<div className={s.detail}>
 							<p className={s.detailLabel}>Жанр</p>
 							<p className={s.detailValue}>
-								{book.genres?.length ? (
-									book.genres.join(', ') //eсли переводчики есть, объединяет их в строку, разделяя запятыми
-								) : (
-									<div> — </div>
-								)}
+								{book.genres?.length
+									? book.genres.join(', ') //eсли переводчики есть, объединяет их в строку, разделяя запятыми
+									: '—'}
 							</p>
 						</div>
 						<div className={s.detail}>
@@ -46,21 +44,17 @@ export const BookFullInfo = ({ book }: BookSmallInfoProps) => {
 						<div className={s.detail}>
 							<p className={s.detailLabel}>Художник</p>
 							<p className={s.detailValue}>
-								{book.painters?.length ? (
-									book.painters.join(', ') //eсли переводчики есть, объединяет их в строку, разделяя запятыми
-								) : (
-									<div> — </div>
-								)}
+								{book.painters?.length
+									? book.painters.join(', ') //eсли переводчики есть, объединяет их в строку, разделяя запятыми
+									: '—'}
 							</p>
 						</div>
 						<div className={s.detail}>
 							<p className={s.detailLabel}>Переводчик</p>
 							<p className={s.detailValue}>
-								{book.translaters?.length ? (
-									book.translaters.join(', ') //eсли переводчики есть, объединяет их в строку, разделяя запятыми
-								) : (
-									<div> — </div>
-								)}
+								{book.translaters?.length
+									? book.translaters.join(', ') //eсли переводчики есть, объединяет их в строку, разделяя запятыми
+									: '—'}
 							</p>
 						</div>
 						<div className={s.detail}>

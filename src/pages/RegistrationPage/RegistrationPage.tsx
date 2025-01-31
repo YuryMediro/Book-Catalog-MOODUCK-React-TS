@@ -35,7 +35,7 @@ export const RegistrationPage = () => {
 							</NavLink>
 						</div>
 						<div className={s.line} />
-					</aside>
+					</aside>	
 					<RegistrationPageForm />
 				</div>
 			)}

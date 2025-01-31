@@ -9,8 +9,11 @@ import { useFormModal } from '@hooks/useFormModal'
 import s from './UserSettings.module.css'
 import { barcode, goose } from 'assets/img'
 import { createPortal } from 'react-dom'
-
-export const UserSettings = () => {
+import { User } from 'models/User'
+interface UserSettingsProps {
+	user: User
+}
+export const UserSettings = ({ user }: UserSettingsProps) => {
 	const modalUsernameVisible = useFormModal(false)
 	const modalEmailVisible = useFormModal(false)
 	const modalCheckPasswordVisible = useFormModal(false)
@@ -30,11 +33,11 @@ export const UserSettings = () => {
 					<div className={s.info}>
 						<div className={s.infoItem}>
 							<p className={s.label}>Имя пользователя</p>
-							<p className={s.value}>Mediro</p>
+							<p className={s.value}>{user.username}</p>
 						</div>
 						<div className={s.infoItem}>
 							<p className={s.label}>E-mail</p>
-							<p className={s.value}>sagn375@gmail.com</p>
+							<p className={s.value}>{user.email}</p>
 						</div>
 						<div className={s.infoItem}>
 							<p className={s.label}>Пароль</p>

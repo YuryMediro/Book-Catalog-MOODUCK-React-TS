@@ -16,24 +16,26 @@ export const Pagination = ({
 }: PaginationProps) => {
 	const handleClick = (page: number) => {
 		if (page >= 1 && page <= totalPages) {
-			setPage(page) // Устанавливаем новую страницу
+			setPage(page)
 		}
 	}
 
 	const renderPages = () => {
 		const pages = []
-		const delta = 2 // Количество страниц до и после текущей
+		const delta = 2
 
-		// Первая страница всегда отображается
-		pages.push(
-			<button
-				key={1}
-				className={`${s.pageNumber} ${currentPage === 1 ? s.active : ''}`}
-				onClick={() => handleClick(1)}
-			>
-				1
-			</button>
-		)
+		// Первая страница (только если есть больше одной страницы)
+		if (totalPages >= 1) {
+			pages.push(
+				<button
+					key='first-page' // Уникальный ключ
+					className={`${s.pageNumber} ${currentPage === 1 ? s.active : ''}`}
+					onClick={() => handleClick(1)}
+				>
+					1
+				</button>
+			)
+		}
 
 		// Троеточие перед центральными страницами
 		if (currentPage > delta + 2) {
@@ -44,15 +46,14 @@ export const Pagination = ({
 			)
 		}
 
-		// Центральные страницы
-		for (
-			let i = Math.max(2, currentPage - delta);
-			i <= Math.min(totalPages - 1, currentPage + delta);
-			i++
-		) {
+		// Центральные страницы (исключаем первую и последнюю)
+		const start = Math.max(2, currentPage - delta)
+		const end = Math.min(totalPages - 1, currentPage + delta)
+
+		for (let i = start; i <= end; i++) {
 			pages.push(
 				<button
-					key={i}
+					key={`page-${i}`} // Уникальный ключ с префиксом
 					className={`${s.pageNumber} ${currentPage === i ? s.active : ''}`}
 					onClick={() => handleClick(i)}
 				>
@@ -70,18 +71,20 @@ export const Pagination = ({
 			)
 		}
 
-		// Последняя страница всегда отображается
-		pages.push(
-			<button
-				key={totalPages}
-				className={`${s.pageNumber} ${
-					currentPage === totalPages ? s.active : ''
-				}`}
-				onClick={() => handleClick(totalPages)}
-			>
-				{totalPages}
-			</button>
-		)
+		// Последняя страница (только если есть больше одной страницы)
+		if (totalPages > 1) {
+			pages.push(
+				<button
+					key='last-page' // Уникальный ключ
+					className={`${s.pageNumber} ${
+						currentPage === totalPages ? s.active : ''
+					}`}
+					onClick={() => handleClick(totalPages)}
+				>
+					{totalPages}
+				</button>
+			)
+		}
 
 		return pages
 	}

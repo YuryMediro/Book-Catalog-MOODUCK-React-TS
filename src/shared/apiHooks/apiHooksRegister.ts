@@ -16,12 +16,14 @@ export const useRegisterHooks = (setServerError: (message: string) => void) => {
 		mutationFn: (data: RegisterProps) =>
 			apiPost<AuthResponse>('/auth/registration', data),
 		onSuccess: data => {
+			console.log(data)
 			// Сохраняем токен в localStorage
 			localStorage.setItem('token', data.accessToken)
 
 			navigate('/login')
 		},
 		onError: (error: any) => {
+			console.log(error)
 			if (error.response?.data?.message) {
 				setServerError(error.response.data.message)
 			}

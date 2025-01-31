@@ -10,12 +10,19 @@ interface ApiResponse<T> extends AxiosResponse {
 
 // Базовая функция для GET-запросов
 export const apiGet = async <T>(endpoint: string): Promise<T> => {
-	const response: ApiResponse<T> = await api.get(endpoint)
-	return response.data
+	try {
+		console.log('Fetching from:', endpoint) // Лог URL
+		const response: ApiResponse<T> = await api.get(endpoint)
+		return response.data
+	} catch (error) {
+		console.error('API Error:', error) // Лог ошибки
+		throw error
+	}
 }
 // Базовая функция для POST-запросов
 export const apiPost = async <T>(endpoint: string, data: any): Promise<T> => {
 	const response: ApiResponse<T> = await api.post(endpoint, data)
+	console.log(data)
 	return response.data
 }
 // Базовая функция для PUT-запросов

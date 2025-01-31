@@ -5,8 +5,19 @@ import { Line } from '@components/UI/Line/Line'
 import { ScrollButton } from '@components/UI/ScrollButton/ScrollButton'
 import { UserSettings } from '@components/UserComponents/UserSettings'
 import s from './UserPage.module.css'
+import { useParams } from 'react-router'
+import { useUserData } from 'shared/apiHooks/apiGetUser'
 
 export const UserPage = () => {
+	const { id } = useParams<{ id: string }>()
+	console.log('User ID from URL params:', id) 
+	const { data: user, error, isLoading } = useUserData(id!)
+
+	if (isLoading) return <div>Loader...</div>
+	if (error) return <p>Ошибка загрузки пользователя: {error.message}</p>
+	
+	// Проверяем, существует ли user, перед рендером
+	if (!user) return <p>User не найден</p>
 	return (
 		<div className={s.wrapper}>
 			<Layout>
@@ -14,7 +25,7 @@ export const UserPage = () => {
 				<div className={s.main}>
 					<div className={s.section}>
 						<p className={s.sectionTitle}>Личные данные</p>
-						<UserSettings />
+						<UserSettings user={user} />
 						<Line />
 					</div>
 					<div className={s.section}>

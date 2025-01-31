@@ -11,13 +11,16 @@ export const useLoginHooks = (setServerError: (message: string) => void) => {
 		mutationFn: (data: formLoginValues) =>
 			apiPost<AuthResponse>('/auth/login', data),
 		onSuccess: data => {
+			console.log(data)
 			// Сохраняем токен в localStorage
 			localStorage.setItem('token', data.accessToken)
-
+			console.log('Token saved:', data.accessToken) // Лог токена
+			localStorage.setItem('hui', data.user.id)
+			console.log('User ID saved:', data.user.id)
 			navigate('/booksPage')
 		},
 		onError: (error: any) => {
-			if(error.response?.data?.message){
+			if (error.response?.data?.message) {
 				setServerError(error.response.data.message)
 			}
 		},

@@ -7,6 +7,9 @@ import { LogoAndName } from '../LogoAndName/LogoAndName'
 
 export const Header = () => {
 	const mobile = window.innerWidth <= 767
+	const userId = localStorage.getItem('hui')
+	console.log('User ID from localStorage:', userId)
+
 	return (
 		<>
 			{mobile ? (
@@ -52,7 +55,7 @@ export const Header = () => {
 									<ReactSVG src={search} className={s.search_icon} />
 								</div>
 							</form>
-							<NavLink to={'/userPage'}>
+							<NavLink to={`/userPage/${userId}`}>
 								<ReactSVG src={unknownAvatar} />
 							</NavLink>
 						</div>
@@ -63,3 +66,4 @@ export const Header = () => {
 		</>
 	)
 }
+//<NavLink to={`/userPage/${userId}`}>
