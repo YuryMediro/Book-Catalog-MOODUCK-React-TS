@@ -5,19 +5,24 @@ import { BooksPage } from 'pages/BooksPage/BooksPage'
 import { BookPage } from 'pages/BookPage/BookPage'
 import { UserPage } from 'pages/UserPage/UserPage'
 import { useUser } from 'context/UserContext'
+import { Preloader } from '@components/UI/Preloader/Preloader'
 
 //  Компонент для защиты приватных маршрутов
 //  Перенаправляет неавторизованных пользователей на страницу входа
 const AuthRoute = () => {
-	const { user, token } = useUser()
-	return user && token ? <Outlet /> : <Navigate to='/login' replace />
+	const { user, isLoading } = useUser()
+
+	if (isLoading) return <Preloader />
+	return user ? <Outlet /> : <Navigate to='/login' replace />
 }
 
 //  Компонент для защиты публичных маршрутов
 //  Перенаправляет авторизованных пользователей на главную страницу
 const GuestRoute = () => {
-	const { user, token } = useUser()
-	return user && token ? <Navigate to='/booksPage' replace /> : <Outlet />
+	const { user, isLoading } = useUser()
+
+	if (isLoading) return <Preloader />
+	return user ? <Navigate to='/booksPage' replace /> : <Outlet />
 }
 
 export const AppRoutes = () => {

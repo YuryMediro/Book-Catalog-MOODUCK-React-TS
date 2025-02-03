@@ -6,18 +6,14 @@ import { apiPost } from 'shared/api/apiService'
 import { AuthResponse } from 'shared/http/apiInstance'
 
 export const useLoginHooks = (setServerError: (message: string) => void) => {
-	const { setUser, setToken } = useUser()
+	const { checkAuth } = useUser()
 	const navigate = useNavigate()
 
 	const mutation = useMutation<AuthResponse, Error, formLoginValues>({
 		mutationFn: (data: formLoginValues) =>
 			apiPost<AuthResponse>('/auth/login', data),
-		onSuccess: data => {
-			console.log(data)
-			setUser({ id: data.user.id }) // Сохраняем пользователя
-			console.log('User id saved', data.user.id)
-			setToken(data.accessToken) // Сохраняем токен
-			console.log('Token id saved', data.accessToken)
+		onSuccess: async () => {
+			await checkAuth()
 			navigate('/booksPage')
 		},
 		onError: (error: any) => {
