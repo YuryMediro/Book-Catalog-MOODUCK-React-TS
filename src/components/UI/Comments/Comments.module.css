@@ -1,8 +1,18 @@
+.commentsContainer{
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
 .showMoreComment {
 	color: #246a73;
 	font-size: 20px;
 	font-weight: 600;
 	text-align: center;
-	margin-top: 50px;
+	margin-top: 20px;
 	cursor: pointer;
+}
+.noComments{
+	font-size: 20px;
+	font-weight: 400;
+	color: #160F29;
 }

@@ -49,7 +49,7 @@ export const RegistrationPageForm = () => {
 			},
 			{
 				onSuccess: () => {
-					reset() // Открываем модальное окно после успешной регистрации
+					reset()
 				},
 				onError: () => {
 					reset()

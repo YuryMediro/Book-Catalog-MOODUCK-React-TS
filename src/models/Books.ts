@@ -1,3 +1,5 @@
+import { TArray } from "@utils/checkExtendOfUser"
+
 export interface Images {
 	largeFingernail: string
 	mediumFingernail: string
@@ -17,4 +19,17 @@ export interface Book {
 export type TBooks = {
 	books: Array<Book>
 	totalPages: number
+}
+
+export interface TComment {
+	// все поля которые есть у комментариев
+	bookId: string
+	date: number
+	dislikes: TArray[]
+	likes: TArray[]
+	rating: number
+	text: string
+	title: string
+	userId: string
+	_id: string
 }

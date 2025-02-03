@@ -3,13 +3,15 @@ import { Star } from './Star'
 
 interface StarRatingProps {
 	rating: number
+	disabled: boolean
 	handleRating: (rating: number) => void
 }
 
-export const StarRating = ({ handleRating, rating }: StarRatingProps) => {
+export const StarRating = ({ handleRating, rating, disabled }: StarRatingProps) => {
 	return (
 		<div>
 			<Rating
+				allowHover={disabled ? false : true}
 				onClick={handleRating}
 				initialValue={rating}
 				emptyIcon={<Star star={false}></Star>}

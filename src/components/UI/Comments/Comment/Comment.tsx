@@ -4,70 +4,63 @@ import { ReactSVG } from 'react-svg'
 import { dislike, like } from 'assets/img'
 import { TextBlock } from '@components/UI/TextBlock/TextBlock'
 import { StarRating } from '@components/UI/StarRating/StarRating'
+import { useDate } from '@hooks/useDate'
+import { TArray } from '@utils/checkExtendOfUser'
+import { useUserData } from 'shared/apiHooks/apiGetUser'
 
 interface CommentProps {
 	rating: number
 	initialLikes?: number
 	initialDislikes?: number
+	title: string
+	text: string
+	date: number
+	userId: string
+	dislikes: TArray[]
+	likes: TArray[]
+	commentId: string
 }
 
 export const Comment = ({
 	rating,
-	initialLikes = 0,
-	initialDislikes = 0,
+	title,
+	text,
+	date,
+	dislikes,
+	likes,
+	userId,
+	commentId,
 }: CommentProps) => {
-	const [likes, setLikes] = useState(initialLikes)
-	const [dislikes, setDislikes] = useState(initialDislikes)
-	const [isLiked, setIsLiked] = useState(false)
-	const [isDisliked, setIsDisliked] = useState(false)
-
-	const handleLike = () => {
-		if (isLiked) {
-			setLikes(likes - 1)
-		} else {
-			setLikes(likes + 1)
-			if (isDisliked) {
-				setDislikes(dislikes - 1)
-				setIsDisliked(false)
-			}
-		}
-		setIsLiked(!isLiked)
-	}
-	const handleDislike = () => {
-		if (isDisliked) {
-			setDislikes(dislikes - 1)
-		} else {
-			setDislikes(dislikes + 1)
-			if (isLiked) {
-				setLikes(likes - 1)
-				setIsLiked(false)
-			}
-		}
-		setIsDisliked(!isDisliked)
-	}
+	const { formattedDate } = useDate(date)
+	const { data: userData } = useUserData(userId)
 
 	const [isExpanded, setIsExpanded] = useState(false)
+	
 	return (
 		<div className={s.commentContainer}>
 			<div className={s.header}>
-				<p>Наталья Фетисова</p>
-				<p>06.06.2023</p>
+				<p>{userData?.username}</p>
+				<p>{formattedDate}</p>
 			</div>
 			<div className={s.content}>
-				<p className={s.title}>Одна из любимых историй</p>
-				<TextBlock isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
+				<p className={s.title}>{title}</p>
+				<TextBlock
+					isExpanded={isExpanded}
+					setIsExpanded={setIsExpanded}
+					text={text}
+				/>
 			</div>
 			<div className={s.ratingContainer}>
-				<StarRating rating={rating} handleRating={() => {}} />
+				<StarRating rating={rating} handleRating={() => {}} disabled={true} />
 				<div className={s.likeDisContainer}>
-					<div onClick={handleLike} className={s.likeDis}>
+					<div className={s.likeDis}>
 						<ReactSVG src={like} className={s.like} />
 					</div>
-					<span>{likes}</span>
-					<div onClick={handleDislike} className={s.likeDis}>
+					<span>{likes?.length}</span>
+					<div className={s.likeDis}>
 						<ReactSVG src={dislike} className={s.dislike} />
 					</div>
-					<span>{dislikes}</span>
+					<span>{dislikes?.length}</span>
 				</div>
 			</div>
 		</div>

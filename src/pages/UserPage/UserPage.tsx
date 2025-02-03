@@ -7,12 +7,13 @@ import { UserSettings } from '@components/UserComponents/UserSettings'
 import s from './UserPage.module.css'
 import { useParams } from 'react-router'
 import { useUserData } from 'shared/apiHooks/apiGetUser'
+import { Preloader } from '@components/UI/Preloader/Preloader'
 
 export const UserPage = () => {
 	const { id } = useParams<{ id: string }>()
 	const { data: user, error, isLoading } = useUserData(id!)
 
-	if (isLoading) return <div>Loader...</div>
+	if (isLoading) return <Preloader/>
 	if (error) return <p>Ошибка загрузки пользователя: {error.message}</p>
 	
 	// Проверяем, существует ли user, перед рендером
