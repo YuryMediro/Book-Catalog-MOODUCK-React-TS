@@ -35,11 +35,11 @@ export const Filter = ({
 				<div className={s.section}>
 					<p className={s.title}>Вcе книги</p>
 					<div className={s.scrollableGenres}>
-						{genres.map(genre => (
+						{genres.map(g => (
 							<CheckBox
-								checked={genre.checked}
-								key={genre.id}
-								info={genre.author}
+								checked={g.checked}
+								key={g.id}
+								info={g.author}
 								onClick={handleOnClickGenre}
 							/>
 						))}
@@ -58,11 +58,11 @@ export const Filter = ({
 						<ReactSVG src={search} />
 					</div>
 					<div className={s.scrollableAuthors}>
-						{searchedAuthors.map(author => (
+						{searchedAuthors.map(a => (
 							<CheckBox
-								checked={author.checked}
-								key={author.id}
-								info={author.author}
+								checked={a.checked}
+								key={a.id}
+								info={a.author}
 								onClick={handleOnClickAuthor}
 							/>
 						))}

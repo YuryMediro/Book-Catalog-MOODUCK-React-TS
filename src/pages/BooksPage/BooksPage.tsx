@@ -19,12 +19,16 @@ interface IAppliedFilters {
 
 export const BooksPage = () => {
 	const [page, setPage] = useState<number>(1)
-	const { colum, handleOnClickView } = useBooks({ initialColum: false })
-	const { data, isLoading, error } = useBooksHooks({ page: 1, limit: 1000 })
 	const ITEMS_PER_PAGE = 16
+
+	const { colum, handleOnClickView } = useBooks({ initialColum: false })
+
+	const { data, isLoading, error } = useBooksHooks({ page: 1, limit: 1000 })
+
 	const {
 		genres,
-		searchedAuthors,
+		authors,
+		filteredAuthors,
 		handleOnClickAuthor,
 		handleOnClickGenre,
 		clear,
@@ -39,12 +43,8 @@ export const BooksPage = () => {
 
 	// Функция, которая срабатывает при нажатии на кнопку "Применить фильтры"
 	const applyFilters = () => {
-		const selectedAuthors = searchedAuthors
-			.filter(author => author.checked)
-			.map(author => author.author)
-		const selectedGenres = genres
-			.filter(genre => genre.checked)
-			.map(genre => genre.author)
+		const selectedAuthors = authors.filter(a => a.checked).map(a => a.author)
+		const selectedGenres = genres.filter(g => g.checked).map(g => g.author)
 
 		setAppliedFilters({
 			authors: selectedAuthors,
@@ -99,7 +99,7 @@ export const BooksPage = () => {
 						<FilterContainer
 							setColum={handleOnClickView}
 							genres={genres}
-							searchedAuthors={searchedAuthors}
+							searchedAuthors={filteredAuthors}
 							handleOnClickAuthor={handleOnClickAuthor}
 							handleOnClickGenre={handleOnClickGenre}
 							value={value.value}
@@ -121,14 +121,14 @@ export const BooksPage = () => {
 							</div>
 						) : colum ? (
 							<div className={s.bookColum}>
-								{currentBooks.map(book => (
-									<BookColum key={book._id} book={book} />
+								{currentBooks.map(b => (
+									<BookColum key={b._id} book={b} />
 								))}
 							</div>
 						) : (
 							<div className={s.booksList}>
-								{currentBooks.map(book => (
-									<BookList key={book._id} book={book} />
+								{currentBooks.map(b => (
+									<BookList key={b._id} book={b} />
 								))}
 							</div>
 						)}
