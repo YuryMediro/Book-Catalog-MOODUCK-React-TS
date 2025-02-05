@@ -4,9 +4,20 @@ import { sortAuthorsGenres } from '@utils/sortAuthorsGenres'
 import { getUniqueObjects } from '@utils/getUniqObject'
 import { AUTHORS, GENRES } from 'constants/constants'
 import { useMemo, useState } from 'react'
+import { Book } from 'models/Books'
+
+interface IAppliedFilters {
+	authors: string[]
+	genres: string[]
+}
 
 export const useFilterBook = (initialValue: string) => {
 	const value = useInput(initialValue)
+	// Состояние для выбранных фильтров
+	const [appliedFilters, setAppliedFilters] = useState<IAppliedFilters>({
+		authors: [],
+		genres: [],
+	})
 
 	const [authors, setAuthors] = useState<IAuthorsAndGenres[]>(
 		sortAuthorsGenres(getUniqueObjects(AUTHORS))
@@ -36,6 +47,42 @@ export const useFilterBook = (initialValue: string) => {
 	const clear = () => {
 		setGenres(prev => prev.map(genre => ({ ...genre, checked: false })))
 		setAuthors(prev => prev.map(author => ({ ...author, checked: false })))
+		setAppliedFilters({
+			authors: [],
+			genres: [],
+		})
+	}
+
+	// Функция, которая срабатывает при нажатии на кнопку "Применить фильтры"
+	const applyFilters = () => {
+		const selectedAuthors = authors.filter(a => a.checked).map(a => a.author)
+		const selectedGenres = genres.filter(g => g.checked).map(g => g.author)
+
+		setAppliedFilters({
+			authors: selectedAuthors,
+			genres: selectedGenres,
+		})
+	}
+
+	// Фильтрация книг на основе appliedFilters
+	const filterBooks = (books: Book[]): Book[] => {
+		return books.filter(book => {
+			let valid = true
+			if (appliedFilters.authors.length > 0) {
+				// Если выбран хотя бы один автор, проверяем, что у книги есть один из них
+				valid =
+					valid &&
+					book.authors.some(author => appliedFilters.authors.includes(author))
+			} //Метод массива some() позволяет узнать, есть ли в массиве хотя бы один элемент, удовлетворяющий условию в функции-колбэке
+			//includes() возвращает boolean значение, которое указывает на присутствие или отсутствие элемента.
+			if (appliedFilters.genres.length > 0) {
+				// Если выбран хотя бы один жанр, проверяем, что у книги есть один из них
+				valid =
+					valid &&
+					book.genres.some(genre => appliedFilters.genres.includes(genre))
+			}
+			return valid
+		})
 	}
 
 	//Логика фильтрации авторов по поисковому запросу
@@ -57,5 +104,7 @@ export const useFilterBook = (initialValue: string) => {
 		handleOnClickAuthor,
 		handleOnClickGenre,
 		clear,
+		filterBooks,
+		applyFilters,
 	}
 }

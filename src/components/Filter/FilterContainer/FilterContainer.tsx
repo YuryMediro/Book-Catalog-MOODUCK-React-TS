@@ -34,7 +34,17 @@ export const FilterContainer = ({
 	return (
 		<>
 			{mobile ? (
-				<FilterMobile setColum={setColum} />
+				<FilterMobile
+					setColum={setColum}
+					searchedAuthors={searchedAuthors}
+					genres={genres}
+					handleOnClickAuthor={handleOnClickAuthor}
+					handleOnClickGenre={handleOnClickGenre}
+					value={value}
+					handleOnChange={handleOnChange}
+					clear={clear}
+					onApplyFilters={onApplyFilters}
+				/>
 			) : (
 				<Filter
 					searchedAuthors={searchedAuthors}

@@ -5,12 +5,32 @@ import { createPortal } from 'react-dom'
 import { useFormModal } from '@hooks/useFormModal'
 import { Button } from '@components/UI/Button/Button'
 import { ModalFilter } from '@components/UI/modal/ModalFilter/ModalFilter'
+import { IAuthorsAndGenres } from 'models/IAuthorsAndGenres'
+import { ChangeEvent } from 'react'
 
 interface FilterMobileProps {
 	setColum: (type: boolean) => void
+	searchedAuthors: IAuthorsAndGenres[]
+	genres: IAuthorsAndGenres[]
+	handleOnClickAuthor: (id: string) => void
+	handleOnClickGenre: (id: string) => void
+	value: string
+	handleOnChange: (e: ChangeEvent<HTMLInputElement>) => void
+	clear: () => void
+	onApplyFilters: () => void
 }
 
-export const FilterMobile = ({ setColum }: FilterMobileProps) => {
+export const FilterMobile = ({
+	setColum,
+	genres,
+	searchedAuthors,
+	handleOnClickAuthor,
+	handleOnClickGenre,
+	value,
+	handleOnChange,
+	clear,
+	onApplyFilters,
+}: FilterMobileProps) => {
 	const modalFilterVisible = useFormModal(false)
 	return (
 		<>
@@ -22,6 +42,14 @@ export const FilterMobile = ({ setColum }: FilterMobileProps) => {
 					<ModalFilter
 						visible={modalFilterVisible.visible}
 						setVisible={modalFilterVisible.handleOnClick}
+						searchedAuthors={searchedAuthors}
+						genres={genres}
+						handleOnClickAuthor={handleOnClickAuthor}
+						handleOnClickGenre={handleOnClickGenre}
+						value={value}
+						handleOnChange={handleOnChange}
+						clear={clear}
+						onApplyFilters={onApplyFilters}
 					/>,
 					document.body
 				)}

@@ -14,13 +14,43 @@
 	flex-direction: column;
 	gap: 10px;
 }
-.scrollable {
-	height: 245px;
-	overflow: auto;
+.scrollableGenres {
+	display: flex;
+	flex-direction: column;
+	max-height: 150px;
+	overflow-y: auto;
+	padding-right: 5px;
+}
+.scrollableGenres::-webkit-scrollbar {
+	width: 6px;
+}
+
+.scrollableGenres::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+.scrollableGenres::-webkit-scrollbar-thumb {
+	background: #160f29;
+	border-radius: 3px;
 }
 .scrollableAuthors {
-	height: 182px;
-	overflow: auto;
+	display: flex;
+	flex-direction: column;
+	max-height: 250px;
+	overflow-y: auto;
+	padding-right: 5px;
+}
+.scrollableAuthors::-webkit-scrollbar {
+	width: 6px;
+}
+
+.scrollableAuthors::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+.scrollableAuthors::-webkit-scrollbar-thumb {
+	background: #160f29;
+	border-radius: 3px;
 }
 .inputContainer {
 	display: flex;
