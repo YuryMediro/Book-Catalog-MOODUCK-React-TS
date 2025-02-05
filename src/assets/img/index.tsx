@@ -24,6 +24,8 @@ import toggleButtonToList from './toggleButtonToList.svg'
 import toggleButtonToTiles from './toggleButtonToTiles.svg'
 import leftArrow from './leftArrow.svg'
 import rightArrow from './rightArrow.svg'
+import coverMiddle from './coverMiddle.svg'
+import bookMark from './bookMark.svg'
 export {
 	email,
 	lock,
@@ -51,4 +53,6 @@ export {
 	toggleButtonToTiles,
 	leftArrow,
 	rightArrow,
+	coverMiddle,
+	bookMark,
 }
