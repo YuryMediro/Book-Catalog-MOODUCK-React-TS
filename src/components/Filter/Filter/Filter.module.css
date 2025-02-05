@@ -17,14 +17,13 @@
 	height: 1px;
 	width: 100%;
 	background-color: black;
+	color: #f1f1f1;
 }
 .section {
 	display: flex;
 	flex-direction: column;
 }
-.scrollable {
-	margin-top: 10px;
-}
+
 .inputContainer {
 	display: flex;
 	align-items: center;
@@ -36,8 +35,47 @@
 .input {
 	width: 100%;
 }
+.scrollableGenres {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	max-height: 190px;
+	overflow-y: auto;
+	padding-right: 5px;
+}
+.scrollableGenres::-webkit-scrollbar {
+	width: 6px;
+}
+
+.scrollableGenres::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+.scrollableGenres::-webkit-scrollbar-thumb {
+	background: #160f29;
+	border-radius: 3px;
+}
 .scrollableAuthors {
 	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	max-height: 250px;
+	overflow-y: auto;
+	padding-right: 5px;
+}
+.scrollableAuthors::-webkit-scrollbar {
+	width: 6px;
+}
+
+.scrollableAuthors::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+.scrollableAuthors::-webkit-scrollbar-thumb {
+	background: #160f29;
+	border-radius: 3px;
 }
 .buttonContainer {
 	display: flex;

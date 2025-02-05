@@ -9,6 +9,7 @@ import { BookList } from '@components/BooksComponents/BookList'
 import { useBooks } from '@hooks/useBooks'
 import { ScrollButton } from '@components/UI/ScrollButton/ScrollButton'
 import { useBooksHooks } from 'shared/apiHooks/apiHooksBooks'
+import { useFilterBook } from '@hooks/useFilterBook'
 
 export const BooksPage = () => {
 	const [page, setPage] = useState<number>(1)
@@ -17,13 +18,35 @@ export const BooksPage = () => {
 
 	const totalPages = data?.totalPages || 1
 
+	const {
+		genres,
+		searchedAuthors,
+		resultAuthors,
+		resultGenres,
+		handleOnClickAuthor,
+		handleOnClickGenre,
+		clear,
+		createResults,
+		value,
+	} = useFilterBook('')
+
 	return (
 		<div className={s.wrapper}>
 			<Layout>
 				<ScrollButton />
 				<div className={s.layout}>
 					<div className={s.filter}>
-						<FilterContainer setColum={handleOnClickView} />
+						<FilterContainer
+							setColum={handleOnClickView}
+							genres={genres}
+							searchedAuthors={searchedAuthors}
+							handleOnClickAuthor={handleOnClickAuthor}
+							handleOnClickGenre={handleOnClickGenre}
+							value={value.value}
+							handleOnChange={value.bind.onChange}
+							clear={clear}
+							createResults={createResults}
+						/>
 					</div>
 					<div className={s.pagination}>
 						{isLoading ? (

@@ -4,8 +4,8 @@
 	gap: 10px;
 }
 .button {
-	height: 22px;
-	width: 22px;
+	height: 15px;
+	width: 15px;
 	border-radius: 2px;
 	border: 2px solid #160f29;
 }
@@ -17,5 +17,8 @@
 .checked {
 	position: relative;
 	background-color: #160f29;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 

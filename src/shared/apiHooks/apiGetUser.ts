@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query'
+import {  useQuery } from '@tanstack/react-query'
 import { User } from 'models/User'
 import { apiGet } from 'shared/api/apiService'
 
@@ -11,3 +11,4 @@ export const useUserData = (userId: string) => {
 	})
 	return { data, error, isLoading }
 }
+

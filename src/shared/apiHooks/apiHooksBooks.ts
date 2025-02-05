@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { TBooks } from 'models/Books'
+import {  TBooks } from 'models/Books'
 import { apiGet } from 'shared/api/apiService'
 
 // хук для получения всех книг
@@ -10,3 +10,4 @@ export const useBooksHooks = (page: number) => {
 	})
 	return { data, error, isLoading }
 }
+

@@ -1,6 +1,4 @@
-import { Preloader } from '@components/UI/Preloader/Preloader'
 import React, { createContext, useContext, useState, useEffect } from 'react'
-import { apiGet, apiPost } from 'shared/api/apiService'
 
 type User = {
 	id: string
@@ -9,49 +7,48 @@ type User = {
 
 type UserContextType = {
 	user: User | null
+	token: string | null
 	setUser: (user: User | null) => void
+	setToken: (token: string | null) => void
 	logout: () => void
-	checkAuth: () => Promise<void>
-	isLoading: boolean
 }
 
 const UserContext = createContext<UserContextType>({} as UserContextType)
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
-	const [user, setUser] = useState<User | null>(null)
-	const [isLoading, setIsLoading] = useState(true)
+	const [user, setUser] = useState<User | null>(() => {
+		const savedUser = localStorage.getItem('user')
+		return savedUser ? JSON.parse(savedUser) : null
+	})
 
-	const checkAuth = async () => {
-		try {
-			const response = await apiGet<{ user: User }>('/auth/refresh')
-			setUser(response.user)
-		} catch (error) {
-			setUser(null)
-		} finally {
-			setIsLoading(false)
-		}
-	}
+	const [token, setToken] = useState<string | null>(() =>
+		localStorage.getItem('token')
+	) // Загружаем токен из localStorage
 
+	// Синхронизация user и token с localStorage
 	useEffect(() => {
-		checkAuth()
-	}, [])
-
-	const logout = async () => {
-		try {
-			await apiPost('/auth/logout', {})
-		} finally {
-			setUser(null)
+		if (user) {
+			localStorage.setItem('user', JSON.stringify(user))
+		} else {
+			localStorage.removeItem('user')
 		}
-	}
+	}, [user])
+	// Синхронизация токена с localStorage
+	useEffect(() => {
+		if (token) {
+			localStorage.setItem('token', token)
+		} else {
+			localStorage.removeItem('token')
+		}
+	}, [token])
 
-	if (isLoading) {
-		return <Preloader/>
+	const logout = () => {
+		setUser(null)
+		setToken(null) // Удаляем токен при выходе
 	}
 
 	return (
-		<UserContext.Provider
-			value={{ user, setUser, logout, checkAuth, isLoading }}
-		>
+		<UserContext.Provider value={{ user, token, setUser, setToken, logout }}>
 			{children}
 		</UserContext.Provider>
 	)

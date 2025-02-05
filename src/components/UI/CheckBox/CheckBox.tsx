@@ -1,27 +1,21 @@
 import { ReactSVG } from 'react-svg'
 import s from './CheckBox.module.css'
 import { galka } from 'assets/img'
-import { useState } from 'react'
 
 interface CheckBoxProps {
 	checked: boolean
-	info:string
+	info: string
+	onClick: Function
 }
 
-export const CheckBox = ({ checked, info }: CheckBoxProps) => {
-	const [isChecked, setIsChecked] = useState(checked)
-
-	const handleClick = () => {
-		setIsChecked(!isChecked)
-	}
-
+export const CheckBox = ({ checked, info, onClick }: CheckBoxProps) => {
 	return (
 		<div className={s.container}>
 			<button
-				className={`${s.button} ${isChecked ? s.checked : ''} `}
-				onClick={handleClick}
+				className={`${s.button} ${checked ? s.checked : ''} `}
+				onClick={() => onClick(info)}
 			>
-				{isChecked && <ReactSVG src={galka} />}
+				{checked && <ReactSVG src={galka} />}
 			</button>
 			<p className={s.info}>{info}</p>
 		</div>

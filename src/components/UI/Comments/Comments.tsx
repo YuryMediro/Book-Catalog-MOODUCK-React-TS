@@ -1,7 +1,7 @@
 import { useParams } from 'react-router'
 import { Comment } from './Comment/Comment'
 import s from './Comments.module.css'
-import { useGetComments } from 'shared/apiHooks/apiGetComments'
+import { useGetComments } from 'shared/apiHooks/apiCommentsHooks'
 import { useVisible } from '@hooks/useMoreAndVisibleComments'
 export const Comments = () => {
 	const { id } = useParams<{ id?: string }>() // Получаем id книги из URL

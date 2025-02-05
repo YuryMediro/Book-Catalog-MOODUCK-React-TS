@@ -21,7 +21,7 @@ export const ModalWriteComment = ({
 			setVisible={setVisible}
 		>
 			<form className={s.formContainer}>
-				<StarRating rating={rating} handleRating={() => {}} />
+				<StarRating rating={rating} handleRating={() => { } } disabled={false} />
 				<div className={s.inputContainer}>
 					<input type='text' placeholder='Заголовок' className={s.inputField} />
 				</div>

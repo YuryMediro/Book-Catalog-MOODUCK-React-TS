@@ -1,4 +1,4 @@
-import { TArray } from "@utils/checkExtendOfUser"
+import { TArray } from '@utils/checkExtendOfUser'
 
 export interface Images {
 	largeFingernail: string
@@ -10,6 +10,7 @@ export interface Book {
 	_id: string
 	title: string
 	authors: string[]
+	genres: string[]
 	description: string
 	publisher: string
 	pageCount: number
