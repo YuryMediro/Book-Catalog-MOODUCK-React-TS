@@ -5,11 +5,7 @@ import { sortAuthorsGenres } from '@utils/sortAuthorsGenres'
 import { getUniqueObjects } from '@utils/getUniqObject'
 import { AUTHORS, GENRES } from 'constants/constants'
 
-export const useFilterBook = (
-	
-	initialValue: string
-) => {
-	
+export const useFilterBook = (initialValue: string) => {
 	const value = useInput(initialValue)
 
 	const [authors, setAuthors] = useState<IAuthorsAndGenres[]>(
@@ -20,9 +16,6 @@ export const useFilterBook = (
 	)
 	const [searchedAuthors, setSearchedAuthors] =
 		useState<IAuthorsAndGenres[]>(authors)
-
-	let resultAuthors: string[] = []
-	let resultGenres: string[] = []
 
 	//Переключение состояния автора (выбран/не выбран):
 	const handleOnClickAuthor: (id: string) => void = id => {
@@ -55,20 +48,6 @@ export const useFilterBook = (
 		)
 	}
 
-	//Функции для заполнения результатов:
-	const pushToAuthors = (author: string) => {
-		resultAuthors.push(author)
-	}
-	const pushToGenres = (genre: string) => {
-		resultGenres.push(genre)
-	}
-
-	//Формирование итоговых результатов:
-	const createResults = () => {
-		authors.filter(author => author.checked).map(el => pushToAuthors(el.author))
-		genres.filter(author => author.checked).map(el => pushToGenres(el.author))
-	}
-
 	//Логика фильтрации авторов по поисковому запросу
 	useEffect(() => {
 		const filteredAuthors = authors.filter(author =>
@@ -82,11 +61,9 @@ export const useFilterBook = (
 		genres,
 		value,
 		searchedAuthors,
-		resultAuthors,
-		resultGenres,
+
 		handleOnClickAuthor,
 		handleOnClickGenre,
 		clear,
-		createResults,
 	}
 }

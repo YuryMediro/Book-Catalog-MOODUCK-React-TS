@@ -14,7 +14,7 @@ interface FilterProps {
 	value: string
 	handleOnChange: (e: ChangeEvent<HTMLInputElement>) => void
 	clear: () => void
-	createResults: () => void
+	onApplyFilters: () => void
 }
 
 export const Filter = ({
@@ -25,7 +25,7 @@ export const Filter = ({
 	value,
 	handleOnChange,
 	clear,
-	createResults,
+	onApplyFilters,
 }: FilterProps) => {
 	return (
 		<>
@@ -38,7 +38,7 @@ export const Filter = ({
 						{genres.map(genre => (
 							<CheckBox
 								checked={genre.checked}
-								key={genre.author}
+								key={genre.id}
 								info={genre.author}
 								onClick={handleOnClickGenre}
 							/>
@@ -61,7 +61,7 @@ export const Filter = ({
 						{searchedAuthors.map(author => (
 							<CheckBox
 								checked={author.checked}
-								key={author.author}
+								key={author.id}
 								info={author.author}
 								onClick={handleOnClickAuthor}
 							/>
@@ -70,16 +70,10 @@ export const Filter = ({
 				</div>
 				<div className={s.section}>
 					<div className={s.buttonContainer}>
-						<Button className={s.button} type='button' onClick={() => {createResults()}}>
+						<Button className={s.button} type='button' onClick={onApplyFilters}>
 							Применить фильтры
 						</Button>
-						<Button
-							className={s.button}
-							type='reset'
-							onClick={() => {
-								clear()
-							}}
-						>
+						<Button className={s.button} type='reset' onClick={clear}>
 							Очистить фильтры
 						</Button>
 					</div>

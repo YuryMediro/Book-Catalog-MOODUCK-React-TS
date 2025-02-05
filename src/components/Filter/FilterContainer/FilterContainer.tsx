@@ -12,7 +12,7 @@ interface FilterContainerProps {
 	value: string
 	handleOnChange: (e: ChangeEvent<HTMLInputElement>) => void
 	clear: () => void
-	createResults: () => void
+	onApplyFilters: () => void
 }
 
 export const FilterContainer = ({
@@ -24,7 +24,7 @@ export const FilterContainer = ({
 	value,
 	handleOnChange,
 	clear,
-	createResults,
+	onApplyFilters,
 }: FilterContainerProps) => {
 	const mobile = window.innerWidth <= 1165
 	// <>
@@ -44,7 +44,7 @@ export const FilterContainer = ({
 					value={value}
 					handleOnChange={handleOnChange}
 					clear={clear}
-					createResults={createResults}
+					onApplyFilters={onApplyFilters}
 				/>
 			)}
 		</>
